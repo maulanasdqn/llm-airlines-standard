@@ -1,6 +1,6 @@
 {
   "name": "airlines-standard",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "ASD-STE100 Simplified Technical English for agent prose, and STE-C for code. Skills to write, review, and adopt the standard.",
   "author": {
     "name": "llm-airlines-standard contributors"
