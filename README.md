@@ -61,7 +61,7 @@ It needs Python 3.9 or later. Run it from the project where you want the skills.
 With no clone, run this command:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/<owner>/llm-airlines-standard/main/install.sh | STE_REPOSITORY=<owner>/llm-airlines-standard bash
+curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash
 ```
 
 From a clone, run this command:
@@ -110,7 +110,7 @@ It never replaces a folder that has no `SKILL.md` file.
 To pipe the options through `curl`, put them after `bash -s --`:
 
 ```sh
-curl -fsSL https://raw.githubusercontent.com/<owner>/llm-airlines-standard/main/install.sh | STE_REPOSITORY=<owner>/llm-airlines-standard bash -s -- --skills all --target claude-user
+curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --skills all --target claude-user
 ```
 
 ### Claude Code plugin
@@ -118,7 +118,7 @@ curl -fsSL https://raw.githubusercontent.com/<owner>/llm-airlines-standard/main/
 You can also install all four skills as one Claude Code plugin:
 
 ```text
-/plugin marketplace add <owner>/llm-airlines-standard
+/plugin marketplace add maulanasdqn/llm-airlines-standard
 /plugin install airlines-standard@llm-airlines-standard
 ```
 
@@ -162,7 +162,7 @@ This repository has hooks for the pre-commit framework:
 
 ```yaml
 repos:
-  - repo: https://github.com/<owner>/llm-airlines-standard
+  - repo: https://github.com/maulanasdqn/llm-airlines-standard
     rev: main
     hooks:
       - id: ste-prose
