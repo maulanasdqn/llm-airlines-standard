@@ -9,6 +9,7 @@
   ste check code .
   ```
 
-- To install `ste`, run `curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --binary-only`.
+- To install `ste` on macOS or Linux, run `curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --binary-only`.
+- To install `ste` on Windows, run `irm https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.ps1 | iex` in PowerShell.
 
 - To skip a rule on one line, put the directive `ste-ignore: C1.6` in a comment on that line. Give the reason in the commit message.

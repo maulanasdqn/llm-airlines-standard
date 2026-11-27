@@ -33,6 +33,12 @@ The profiles are `base`, `docs`, `typescript`, `python`, `go`, and `rust`.
    curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --binary-only
    ```
 
+   On Windows, use PowerShell:
+
+   ```powershell
+   & ([scriptblock]::Create((irm https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.ps1))) -BinaryOnly -AddToPath
+   ```
+
 2. Choose the profile.
    - For one main language, use its profile. `ste adopt` finds the main language when you give no profile.
    - For a monorepo, put `base` at the root and a language profile in each package folder.

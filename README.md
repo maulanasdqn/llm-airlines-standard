@@ -44,7 +44,7 @@ The map of each STE section to its code rules is in `spec/code/mapping.md`.
 | `templates/LEXICON.md` | The empty project dictionary |
 | `linters/` | Configs for Vale, ESLint, ruff, golangci-lint, and clippy, and a git `commit-msg` hook |
 | `spec/` | The rules, the dictionary, and the language profiles |
-| `install.sh` | The installer: it downloads `ste`, then installs the skills |
+| `install.sh`, `install.ps1` | The installers for macOS and Linux, and for Windows: they download `ste`, then install the skills |
 | `docs/images/` | The logo, the build diagram, and the source of the plugin icon |
 
 The build reads the rules in `spec/` and writes the skills, the templates, and the linter configs.
@@ -58,15 +58,28 @@ The `ste` binary embeds all of them. The installer and `ste adopt` put them in y
 
 The installer downloads the `ste` binary for your platform and checks its SHA-256.
 Then it asks which skills you want and where to put them.
-It needs only `bash`, `curl`, and `tar`. Run it from the project where you want the skills.
+Run it from the project where you want the skills.
+
+On macOS and Linux, run this command. It needs only `bash`, `curl`, and `tar`:
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash
 ```
 
-The installer puts `ste` in `~/.local/bin`. To use a different folder, set `STE_INSTALL_DIR`.
+On Windows, run this command in PowerShell:
+
+```powershell
+irm https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.ps1 | iex
+```
+
+| Installer | Folder of `ste` | Options |
+|---|---|---|
+| `install.sh` | `~/.local/bin` | `--binary-only` installs only `ste`. The other options go to `ste install`. |
+| `install.ps1` | `%LOCALAPPDATA%\Programs\ste` | `-BinaryOnly` installs only `ste`. `-AddToPath` adds the folder to the Path of your user account. |
+
+To use a different folder, set `STE_INSTALL_DIR`.
 Release builds exist for macOS (Apple silicon and Intel), Linux (x86_64 and arm64), and Windows (x86_64).
-On Windows, download the zip file from the releases page of this repository.
+Windows on ARM runs the x86_64 build with emulation.
 
 The installer shows two menus:
 
@@ -91,6 +104,12 @@ To pipe options through `curl`, put them after `bash -s --`:
 ```sh
 curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --binary-only
 curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --skills all --target claude-user
+```
+
+To pass options to `install.ps1`, run it as a script block:
+
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.ps1))) -BinaryOnly -AddToPath
 ```
 
 To build `ste` from source, use a Rust toolchain:

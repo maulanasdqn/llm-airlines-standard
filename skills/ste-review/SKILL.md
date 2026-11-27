@@ -29,6 +29,12 @@ It reports each break. It does not change a file unless the user asks for a fix.
    ```sh
    curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --binary-only
    ```
+
+   On Windows, use PowerShell:
+
+   ```powershell
+   & ([scriptblock]::Create((irm https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.ps1))) -BinaryOnly -AddToPath
+   ```
 3. If the project has linter configs from the standard, run them. Look for `eslint.config.mjs`, `ruff.toml`, `.golangci.yml`, `clippy.toml`, and `.vale.ini`.
 4. Review the rules that tools cannot find. Use the list in the next section.
 5. Report the findings in the format of `references/finding-format.md`.

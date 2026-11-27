@@ -17,7 +17,7 @@ This repository obeys its own standard.
 | `tools/` | The linter check script | Yes |
 | `tests/` | The Rust integration tests and the fixtures | Yes |
 | `.claude-plugin/` | The Claude Code plugin and marketplace manifests, and `icon.png` | Yes. Render `icon.png` again from `docs/images/icon.svg` after you change the SVG. |
-| `install.sh` | The installer, for use with `curl` | Yes |
+| `install.sh`, `install.ps1` | The installers for macOS and Linux, and for Windows | Yes. Write no comments in them. |
 
 ## How to change the standard
 

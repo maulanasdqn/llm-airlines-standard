@@ -47,3 +47,33 @@ jobs:
           curl -sSfL "https://github.com/golangci/golangci-lint/releases/download/v${GOLANGCI_LINT_VERSION}/golangci-lint-${GOLANGCI_LINT_VERSION}-linux-amd64.tar.gz" | tar -xz --strip-components=1 -C "$HOME/.local/bin" "golangci-lint-${GOLANGCI_LINT_VERSION}-linux-amd64/golangci-lint"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - run: bash tools/verify_linters.sh
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo build --release --locked
+      - name: Package the binary as a release
+        shell: pwsh
+        run: |
+          $release = Join-Path $env:RUNNER_TEMP 'release'
+          New-Item -ItemType Directory -Force $release | Out-Null
+          $archive = Join-Path $release 'ste-x86_64-pc-windows-msvc.zip'
+          Compress-Archive -Path target/release/ste.exe -DestinationPath $archive
+          $hash = (Get-FileHash $archive -Algorithm SHA256).Hash.ToLower()
+          "$hash  ste-x86_64-pc-windows-msvc.zip" | Out-File -Encoding ascii "$archive.sha256"
+      - name: Install with install.ps1
+        shell: pwsh
+        run: |
+          $env:STE_DOWNLOAD_URL = Join-Path $env:RUNNER_TEMP 'release'
+          $env:STE_INSTALL_DIR = Join-Path $env:RUNNER_TEMP 'bin'
+          ./install.ps1 -BinaryOnly -AddToPath
+          $ste = Join-Path $env:STE_INSTALL_DIR 'ste.exe'
+          & $ste --version
+          if ($LASTEXITCODE -ne 0) { throw 'The installed ste.exe did not start.' }
+          $skills = Join-Path $env:RUNNER_TEMP 'skills'
+          & $ste install --skills ste-writing --dir $skills
+          if (-not (Test-Path (Join-Path $skills 'ste-writing/SKILL.md'))) { throw 'ste install did not write the ste-writing skill.' }
+          & $ste check prose README.md
+          if ($LASTEXITCODE -ne 0) { throw 'ste check prose found errors in README.md on Windows.' }
