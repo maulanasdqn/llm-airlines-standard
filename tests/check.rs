@@ -118,6 +118,18 @@ fn test_rust_literals_hide_comment_markers() {
 }
 
 #[test]
+fn test_script_regex_literals_hide_comment_markers() {
+    let source = "export const BLOCK_COMMENT = /\\/\\*[\\s\\S]*?\\*\\//g;\nexport const MARKERS = /[/*]/g;\n";
+    assert!(run_project("code", &[("markers.ts", source)]).is_empty());
+}
+
+#[test]
+fn test_script_division_keeps_comment_markers() {
+    let source = "export const getHalf = (total: number): number => total / 2; // the half\n";
+    assert_eq!(list_rules(&run_project("code", &[("half.ts", source)])), build_set(&["C6.1"]));
+}
+
+#[test]
 fn test_python_format_strings_are_messages() {
     let source = "def load_order(order_id: str) -> None:\n    raise ValueError(f\"bad\")\n";
     assert_eq!(list_rules(&run_project("code", &[("order.py", source)])), build_set(&["C7.3"]));

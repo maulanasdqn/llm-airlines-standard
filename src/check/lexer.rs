@@ -1,3 +1,5 @@
+use super::regex;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum Language {
     Python,
@@ -39,7 +41,7 @@ struct Quote {
 }
 const RUST_ESCAPE_CHARS: usize = 12;
 
-fn is_word(byte: u8) -> bool {
+pub fn is_word(byte: u8) -> bool {
     byte.is_ascii_alphanumeric() || byte == b'_'
 }
 
@@ -156,6 +158,7 @@ fn find_literal(text: &str, index: usize, language: Language) -> Option<Token> {
         (Language::Go, b'`') => literal(find_line_end_of(bytes, index + 1, b'`')),
         (Language::Rust, b'\'') => find_char_literal(text, index),
         (Language::Rust, b'r') => find_raw_string(bytes, index),
+        (Language::Script, b'/') => regex::find(text, index),
         _ => None,
     }
 }
