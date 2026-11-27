@@ -2,6 +2,12 @@
   <img src="docs/images/logo.svg" alt="The llm-airlines-standard logo: a jet with contrails made of short lines of text" width="100%">
 </p>
 
+<p align="center">
+  <a href="https://github.com/maulanasdqn/llm-airlines-standard/actions/workflows/check.yml"><img src="https://img.shields.io/github/actions/workflow/status/maulanasdqn/llm-airlines-standard/check.yml?branch=main&label=check" alt="The status of the check workflow"></a>
+  <a href="https://github.com/maulanasdqn/llm-airlines-standard/releases/latest"><img src="https://img.shields.io/github/v/release/maulanasdqn/llm-airlines-standard" alt="The latest release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/maulanasdqn/llm-airlines-standard" alt="The license"></a>
+</p>
+
 # llm-airlines-standard
 
 Aircraft maintenance manuals use a controlled language, so that no technician can misread an instruction.
@@ -13,6 +19,33 @@ The project has three parts:
 1. **STE for prose (W rules).** These rules apply to docs, commits, PRs, error messages, logs, and prompts that agents write.
 2. **STE-C for code (C rules).** This port of STE applies to names, functions, files, errors, and logs.
 3. **Tools.** One Rust binary, `ste`, checks prose and code, installs the skills, and sets up a repository. It has no runtime dependency. The project also has Agent Skills, AGENTS.md templates, and linter configs.
+
+## Quick start
+
+1. Install `ste` and the skills:
+
+   ```sh
+   curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash
+   ```
+
+   On Windows, run this command in PowerShell:
+
+   ```powershell
+   irm https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.ps1 | iex
+   ```
+
+2. Set up your repository:
+
+   ```sh
+   ste adopt --linters --hook
+   ```
+
+3. Check the prose and the code:
+
+   ```sh
+   ste check prose .
+   ste check code .
+   ```
 
 ## The code port in one table
 
@@ -46,11 +79,27 @@ The map of each STE section to its code rules is in `spec/code/mapping.md`.
 | `spec/` | The rules, the dictionary, and the language profiles |
 | `install.sh`, `install.ps1` | The installers for macOS and Linux, and for Windows: they download `ste`, then install the skills |
 | `docs/images/` | The logo, the build diagram, and the source of the plugin icon |
+| `tests/` | The Rust tests and the fixtures |
+| `tools/verify_linters.sh` | A script that runs each linter on the test fixtures |
 
 The build reads the rules in `spec/` and writes the skills, the templates, and the linter configs.
 The `ste` binary embeds all of them. The installer and `ste adopt` put them in your repository.
 
 ![The build reads spec/ and writes skills/, templates/agents/, and linters/. The installer puts them in your repository.](docs/images/pipeline.svg)
+
+## The ste command
+
+| Command | What it does |
+|---|---|
+| `ste check prose PATH...` | Find breaks of the W rules in Markdown and text files. |
+| `ste check code PATH...` | Find breaks of the C rules in TypeScript, JavaScript, Python, Go, and Rust files. |
+| `ste check commit FILE` | Find breaks of rule C9.4 and the W rules in a commit message. Use `-` for the standard input. |
+| `ste check lexicon PATH...` | Write a draft `LEXICON.md` from the names in the code. |
+| `ste install` | Install the skills for Claude Code, Codex, Cursor, and other agents. |
+| `ste adopt` | Write `AGENTS.md`, `CLAUDE.md`, `LEXICON.md`, the linter config, and a commit hook in a repository. |
+| `ste build` | Write the generated files of this repository from `spec/`. This command is for maintainers. |
+
+Run `ste --help` or `ste <command> --help` to see all the options.
 
 ## Install
 
@@ -139,6 +188,15 @@ ste install --skills ste-writing,ste-review --target claude-user --target agents
 The installer does not replace a skill folder that has local changes, unless you give `--force` or answer "y".
 It never replaces a folder that has no `SKILL.md` file.
 
+### Update and remove
+
+To update `ste`, run the installer again. It replaces the binary with the latest release.
+To update the skills, run `ste install` again.
+It skips each skill that is up to date. It also skips a skill that has local changes, unless you give `--force`.
+
+To remove `ste`, delete `~/.local/bin/ste`, or `%LOCALAPPDATA%\Programs\ste` on Windows.
+To remove a skill, delete its folder, such as `~/.claude/skills/ste-review`.
+
 ### Claude Code plugin
 
 You can also install all four skills as one Claude Code plugin:
@@ -188,6 +246,32 @@ src/billing.py:12:1: error C6.1: Remove this comment. Put the meaning in a name,
 
 The exit code is 1 when there is an error. Use `--strict` to fail on warnings too, and `--format json` to get data.
 
+### Configure the checker
+
+Put a `.ste.json` file at the root of the repository:
+
+```json
+{
+  "exclude": ["vendor/*", "generated/*"],
+  "disable": ["C1.7"],
+  "limits": { "code": { "file_lines": 300 } },
+  "lexicon": "LEXICON.md"
+}
+```
+
+| Key | Meaning |
+|---|---|
+| `exclude` | Glob patterns of the files that the checker skips |
+| `disable` | Rule IDs that the checker does not report |
+| `limits` | New values for the limits in `spec/limits.json` |
+| `lexicon` | The path of the project dictionary. The default is `LEXICON.md`. |
+
+The checker reads the tables in `LEXICON.md`.
+Each word in the "Technical verbs" table or the "Technical nouns" table is approved for use in names.
+
+To skip a rule on one line of code, put the directive `ste-ignore: C1.6` in a comment on that line or on the line above it.
+In Markdown, put the comment `<!-- ste-ignore W1.4 -->` on the line above the paragraph.
+
 ### pre-commit
 
 This repository has hooks for the pre-commit framework:
@@ -209,9 +293,9 @@ pre-commit builds `ste` with cargo, so these hooks need a Rust toolchain.
 Read `AGENTS.md`. In short, do these steps:
 
 1. Edit the source in `spec/`.
-2. Run `cargo run -- build`.
-3. Run `cargo test`.
-4. To publish a release, push a tag such as `v0.3.0`. The release workflow builds `ste` for each platform.
+2. Run `cargo run -- build` to write the generated files.
+3. Run `cargo test` and `cargo run -- build --check`.
+4. To publish a release, change the version in `Cargo.toml`, then push a tag such as `v0.3.0`. The release workflow builds `ste` for each platform.
 
 ## Sources
 
