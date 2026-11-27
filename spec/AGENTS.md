@@ -20,7 +20,7 @@ Each rule has a heading and a list of fields:
 ### C5.7 Write one topic per source file, in 200 lines or fewer
 
 - Severity: error
-- Checks: `ste_check`, `eslint:max-lines`
+- Checks: `ste`, `eslint:max-lines`
 - Limit: code.file_lines = 200
 - Why: ...
 - Do: ...

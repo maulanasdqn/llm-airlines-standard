@@ -36,3 +36,7 @@ It overrides the core STE-C rules only where this page says so.
 
 Use `linters/rust/clippy.toml` and the `[lints]` table in `linters/rust/lints.toml`.
 Copy the table into your `Cargo.toml`.
+
+Clippy counts the body of a function as one nesting level, so the config sets its threshold to the C5.4 limit plus 1.
+A free function gets 3 control levels.
+In an `impl` block, clippy also counts the block, so a method gets 2 control levels.

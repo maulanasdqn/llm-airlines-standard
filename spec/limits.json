@@ -1,23 +1,23 @@
 {
-  "prose": {
-    "noun_cluster_words": 3,
-    "hedges_per_sentence": 1,
-    "instruction_words": 20,
-    "description_words": 25,
-    "paragraph_sentences": 6
-  },
   "code": {
-    "name_words": 4,
-    "list_items": 3,
-    "function_lines": 40,
-    "nesting_depth": 3,
     "complexity": 10,
-    "positional_params": 3,
-    "file_lines": 200
+    "file_lines": 200,
+    "function_lines": 40,
+    "list_items": 3,
+    "name_words": 4,
+    "nesting_depth": 3,
+    "positional_params": 3
   },
   "commit": {
+    "body_line_chars": 72,
     "subject_chars": 50,
-    "subject_hard_chars": 72,
-    "body_line_chars": 72
+    "subject_hard_chars": 72
+  },
+  "prose": {
+    "description_words": 25,
+    "hedges_per_sentence": 1,
+    "instruction_words": 20,
+    "noun_cluster_words": 3,
+    "paragraph_sentences": 6
   }
 }

@@ -104,10 +104,10 @@ Before you finish, answer these questions for each changed file:
 
 ## Tool
 
-If the file `tools/ste/ste_check.py` is available, run it on the changed files:
+If the `ste` command is installed, run it on the changed files:
 
 ```sh
-python3 tools/ste/ste_check.py code src
+ste check code src
 ```
 
 The checker finds comments, docstrings, long files, long functions, vague words, abbreviations, long names, and names with no verb.

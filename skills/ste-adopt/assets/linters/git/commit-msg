@@ -1,4 +1,7 @@
 #!/bin/sh
 set -eu
-checker="${STE_CHECK:-tools/ste/ste_check.py}"
-exec python3 "$checker" commit "$1"
+if ! command -v ste >/dev/null 2>&1; then
+  echo "commit-msg: cannot check the message: the ste command is not installed. Run install.sh from llm-airlines-standard." >&2
+  exit 1
+fi
+exec ste check commit "$1"

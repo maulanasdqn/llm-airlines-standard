@@ -1,13 +1,14 @@
 ---
 name: ste-adopt
-description: Set up STE (ASD-STE100 Simplified Technical English) and STE-C (its port to code) in a repository. The skill adds the matching AGENTS.md template, a CLAUDE.md shim, a LEXICON.md drafted from the existing names, the linter configs, the checker, and a commit-msg hook. Use it when the user asks to "adopt STE", "add the airline standard", "set up AGENTS.md for STE", "add STE linting", or to start the standard in a new or an existing project.
+description: Set up STE (ASD-STE100 Simplified Technical English) and STE-C (its port to code) in a repository. The skill runs ste adopt, which adds the matching AGENTS.md template, a CLAUDE.md shim, a LEXICON.md, the linter configs, and a commit-msg hook. Then the skill drafts the lexicon from the existing names. Use it when the user asks to "adopt STE", "add the airline standard", "set up AGENTS.md for STE", "add STE linting", or to start the standard in a new or an existing project.
 license: MIT
 ---
 
 # Adopt STE and STE-C
 
 This skill installs the standard in a target repository.
-All the files that it copies are in `assets/`, next to this file.
+The `ste adopt` command writes the files. It never replaces a file that exists.
+If the `ste` command is not installed, copy the files from `assets/`, next to this file.
 
 ## Assets
 
@@ -15,7 +16,6 @@ All the files that it copies are in `assets/`, next to this file.
 |---|---|
 | `assets/agents/<profile>/AGENTS.md` | `AGENTS.md` at the root, or in a subfolder |
 | `assets/LEXICON.md` | `LEXICON.md` at the root |
-| `assets/tools/ste/` | `tools/ste/` |
 | `assets/linters/typescript/eslint.config.mjs` | `eslint.config.mjs`, or merged into the existing config |
 | `assets/linters/python/ruff.toml` | `ruff.toml`, or merged into `pyproject.toml` |
 | `assets/linters/go/.golangci.yml` | `.golangci.yml` |
@@ -27,37 +27,48 @@ The profiles are `base`, `docs`, `typescript`, `python`, `go`, and `rust`.
 
 ## Procedure
 
-1. Find the languages of the repository. Count the files for each extension, but skip folders such as `node_modules` and `vendor`.
+1. Make sure that the `ste` command works: `ste --version`. If it does not, install it:
+
+   ```sh
+   curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --binary-only
+   ```
+
 2. Choose the profile.
-   - For one main language, use its profile.
+   - For one main language, use its profile. `ste adopt` finds the main language when you give no profile.
    - For a monorepo, put `base` at the root and a language profile in each package folder.
    - For a docs folder, use `docs`.
-3. Look for an existing `AGENTS.md`, `CLAUDE.md`, and linter config.
-   - If a file exists, do not overwrite it. Merge the new rules into it, and show the user the change.
-   - If the existing rules and the standard disagree, ask the user which to keep (C9.2).
-4. Copy the AGENTS.md template.
-5. Next to each AGENTS.md, write a `CLAUDE.md` file that contains only the line `@AGENTS.md`.
-6. Copy `assets/tools/ste/` to `tools/ste/`.
+3. Show the user the changes first:
+
+   ```sh
+   ste adopt --linters --hook --dry-run
+   ```
+
+4. Write the files:
+
+   ```sh
+   ste adopt --linters --hook
+   ```
+
+5. Read the output. For each line that starts with "Kept", merge the rules from the matching file in `assets/` into the existing file. Show the user the change.
+6. If the existing rules and the standard disagree, ask the user which to keep (C9.2).
 7. Write the lexicon draft:
 
    ```sh
-   python3 tools/ste/ste_check.py lexicon src > LEXICON.draft.md
+   ste check lexicon src > LEXICON.draft.md
    ```
 
-8. Copy `assets/LEXICON.md` to `LEXICON.md`. Move the real domain words from the draft into its tables, with one meaning each. Delete the draft.
-9. Copy the linter configs for the languages of the repository. Merge them into the existing configs.
-10. If the repository uses git, install the hook: copy `assets/linters/git/commit-msg` to `.git/hooks/commit-msg` and make it executable.
-11. If the checker must skip some folders, write a `.ste.json` file:
+8. Move the real domain words from the draft into the tables of `LEXICON.md`, with one meaning each. Delete the draft.
+9. If the checker must skip some folders, write a `.ste.json` file:
 
     ```json
     { "exclude": ["vendor/*", "generated/*"] }
     ```
 
-12. Run the checker and report the counts:
+10. Run the checker and report the counts:
 
     ```sh
-    python3 tools/ste/ste_check.py prose .
-    python3 tools/ste/ste_check.py code .
+    ste check prose .
+    ste check code .
     ```
 
 ## In an existing codebase

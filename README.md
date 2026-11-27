@@ -12,7 +12,7 @@ The project has three parts:
 
 1. **STE for prose (W rules).** These rules apply to docs, commits, PRs, error messages, logs, and prompts that agents write.
 2. **STE-C for code (C rules).** This port of STE applies to names, functions, files, errors, and logs.
-3. **Tools.** The tools are Agent Skills, AGENTS.md templates, a checker, and linter configs.
+3. **Tools.** One Rust binary, `ste`, checks prose and code, installs the skills, and sets up a repository. It has no runtime dependency. The project also has Agent Skills, AGENTS.md templates, and linter configs.
 
 ## The code port in one table
 
@@ -35,40 +35,38 @@ The map of each STE section to its code rules is in `spec/code/mapping.md`.
 
 | Path | Contents |
 |---|---|
+| `src/` | The Rust source of the `ste` binary |
 | `skills/ste-writing` | A skill to write and rewrite prose with STE |
 | `skills/ste-code` | A skill to write code with STE-C |
-| `skills/ste-review` | A skill to audit prose and code, with the `ste_check.py` checker |
-| `skills/ste-adopt` | A skill to set up the standard in a repository |
+| `skills/ste-review` | A skill to audit prose and code with `ste check` |
+| `skills/ste-adopt` | A skill to set up the standard in a repository with `ste adopt` |
 | `templates/agents/` | Drop-in AGENTS.md files: `base`, `docs`, `typescript`, `python`, `go`, and `rust` |
 | `templates/LEXICON.md` | The empty project dictionary |
 | `linters/` | Configs for Vale, ESLint, ruff, golangci-lint, and clippy, and a git `commit-msg` hook |
 | `spec/` | The rules, the dictionary, and the language profiles |
-| `install.sh`, `tools/install.py` | The installer for the skills |
+| `install.sh` | The installer: it downloads `ste`, then installs the skills |
 | `docs/images/` | The logo, the build diagram, and the source of the plugin icon |
 
 The build reads the rules in `spec/` and writes the skills, the templates, and the linter configs.
-The installer and the `ste-adopt` skill put them in your repository.
+The `ste` binary embeds all of them. The installer and `ste adopt` put them in your repository.
 
 ![The build reads spec/ and writes skills/, templates/agents/, and linters/. The installer puts them in your repository.](docs/images/pipeline.svg)
 
-## Install the skills
+## Install
 
 ### The installer
 
-The installer asks which skills you want and where to put them.
-It needs Python 3.9 or later. Run it from the project where you want the skills.
-
-With no clone, run this command:
+The installer downloads the `ste` binary for your platform and checks its SHA-256.
+Then it asks which skills you want and where to put them.
+It needs only `bash`, `curl`, and `tar`. Run it from the project where you want the skills.
 
 ```sh
 curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash
 ```
 
-From a clone, run this command:
-
-```sh
-python3 path/to/llm-airlines-standard/tools/install.py
-```
+The installer puts `ste` in `~/.local/bin`. To use a different folder, set `STE_INSTALL_DIR`.
+Release builds exist for macOS (Apple silicon and Intel), Linux (x86_64 and arm64), and Windows (x86_64).
+On Windows, download the zip file from the releases page of this repository.
 
 The installer shows two menus:
 
@@ -88,10 +86,25 @@ Where do you want to install them?
 Type numbers, or press Enter for 1: 1 3
 ```
 
-To install with no questions, give the skills and the targets:
+To pipe options through `curl`, put them after `bash -s --`:
 
 ```sh
-python3 tools/install.py --skills ste-writing,ste-review --target claude-user --target agents-user
+curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --binary-only
+curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --skills all --target claude-user
+```
+
+To build `ste` from source, use a Rust toolchain:
+
+```sh
+cargo install --git https://github.com/maulanasdqn/llm-airlines-standard
+```
+
+### Install the skills with ste
+
+After you install `ste`, run `ste install` to add or update the skills:
+
+```sh
+ste install --skills ste-writing,ste-review --target claude-user --target agents-user
 ```
 
 | Option | Meaning |
@@ -106,12 +119,6 @@ python3 tools/install.py --skills ste-writing,ste-review --target claude-user --
 
 The installer does not replace a skill folder that has local changes, unless you give `--force` or answer "y".
 It never replaces a folder that has no `SKILL.md` file.
-
-To pipe the options through `curl`, put them after `bash -s --`:
-
-```sh
-curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --skills all --target claude-user
-```
 
 ### Claude Code plugin
 
@@ -129,23 +136,29 @@ The plugin adds a prefix to each skill name, such as `airlines-standard:ste-revi
 
 The fast way is the `ste-adopt` skill. Ask your agent: "Adopt the airline standard in this repository."
 
-To set it up by hand, do these steps:
+You can also run `ste adopt` yourself:
 
-1. Copy `templates/agents/<profile>/AGENTS.md` to the root of the repository.
-2. Write a `CLAUDE.md` file next to it that contains only the line `@AGENTS.md`.
-3. Copy `templates/LEXICON.md` to the root of the repository.
-4. Copy `skills/ste-review/scripts/` to `tools/ste/`.
-5. Copy the linter configs for your languages from `linters/`.
+```sh
+ste adopt --linters --hook
+```
+
+The command finds the main language of the folder and writes these files:
+
+- `AGENTS.md` for that language, and a `CLAUDE.md` file that contains only `@AGENTS.md`.
+- `LEXICON.md`, the empty project dictionary.
+- With `--linters`, the linter config for the language.
+- With `--hook`, a git `commit-msg` hook that runs `ste check commit`.
+
+It never replaces a file that exists. Use `--profile` to choose `base`, `docs`, `typescript`, `python`, `go`, or `rust`.
+Use `--dry-run` to see the changes first.
 
 ## Run the checker
 
-The checker needs Python 3.9 or later and no packages.
-
 ```sh
-python3 tools/ste/ste_check.py prose README.md docs
-python3 tools/ste/ste_check.py code src
-python3 tools/ste/ste_check.py commit .git/COMMIT_EDITMSG
-python3 tools/ste/ste_check.py lexicon src
+ste check prose README.md docs
+ste check code src
+ste check commit .git/COMMIT_EDITMSG
+ste check lexicon src
 ```
 
 Each finding has a rule ID, a severity, and a fix:
@@ -163,20 +176,23 @@ This repository has hooks for the pre-commit framework:
 ```yaml
 repos:
   - repo: https://github.com/maulanasdqn/llm-airlines-standard
-    rev: main
+    rev: v0.2.0
     hooks:
       - id: ste-prose
       - id: ste-code
       - id: ste-commit
 ```
 
+pre-commit builds `ste` with cargo, so these hooks need a Rust toolchain.
+
 ## Change the standard
 
 Read `AGENTS.md`. In short, do these steps:
 
 1. Edit the source in `spec/`.
-2. Run `python3 tools/build.py`.
-3. Run `python3 -m unittest discover -s tests`.
+2. Run `cargo run -- build`.
+3. Run `cargo test`.
+4. To publish a release, push a tag such as `v0.3.0`. The release workflow builds `ste` for each platform.
 
 ## Sources
 

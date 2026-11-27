@@ -83,10 +83,10 @@ Before you send the text, read it once and answer these questions:
 
 ## Tool
 
-If the `ste-review` skill or the file `tools/ste/ste_check.py` is available, run the checker on Markdown files:
+If the `ste` command is installed, run the checker on Markdown files:
 
 ```sh
-python3 tools/ste/ste_check.py prose README.md docs
+ste check prose README.md docs
 ```
 
 The checker finds length, voice, hedges, and words to avoid. It cannot find a word with two meanings. You must find that.

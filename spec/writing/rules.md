@@ -44,7 +44,7 @@ Each rule has these fields:
 ### W1.4 Use simple words, and do not use the words in the words-to-avoid list
 
 - Severity: warning
-- Checks: `ste_check`, `vale:STE.WordsToAvoid`
+- Checks: `ste`, `vale:STE.WordsToAvoid`
 - Why: A long word or a filler word adds work for the reader and gives no information.
 - Do: "Use the cache."
 - Do not: "Leverage the cache."
@@ -60,7 +60,7 @@ Each rule has these fields:
 ### W1.6 Do not use idioms or slang
 
 - Severity: warning
-- Checks: `ste_check`, `vale:STE.WordsToAvoid`
+- Checks: `ste`, `vale:STE.WordsToAvoid`
 - Why: An idiom has a meaning that its words do not show. Many readers do not know it.
 - Do: "The tool works with no setup."
 - Do not: "The tool works out of the box."
@@ -113,7 +113,7 @@ Each rule has these fields:
 ### W3.1 Use only simple verb forms
 
 - Severity: warning
-- Checks: `ste_check`, `vale:STE.PresentPerfect`
+- Checks: `ste`, `vale:STE.PresentPerfect`
 - Why: The imperative, the simple present, the simple past, and the simple future are easy to read. Compound forms are not.
 - Do: "The job failed at 10:00."
 - Do not: "The job has been failing since 10:00."
@@ -121,7 +121,7 @@ Each rule has these fields:
 ### W3.2 Do not use "-ing" verb forms
 
 - Severity: warning
-- Checks: `ste_check`, `vale:STE.Progressive`
+- Checks: `ste`, `vale:STE.Progressive`
 - Why: An "-ing" form can be a verb, a noun, or an adjective. The reader must guess which.
 - Do: "The server sends the report."
 - Do not: "The server is sending the report."
@@ -129,7 +129,7 @@ Each rule has these fields:
 ### W3.3 Use the active voice
 
 - Severity: warning
-- Checks: `ste_check`, `vale:STE.Passive`
+- Checks: `ste`, `vale:STE.Passive`
 - Why: The active voice names the actor. Use the passive only in a description, and only when the actor is unknown or does not matter.
 - Do: "The worker deletes the file."
 - Do not: "The file is deleted."
@@ -137,7 +137,7 @@ Each rule has these fields:
 ### W3.4 Use a verb for an action, not a noun phrase
 
 - Severity: warning
-- Checks: `ste_check`, `vale:STE.WordsToAvoid`
+- Checks: `ste`, `vale:STE.WordsToAvoid`
 - Why: A noun phrase hides the action and adds words.
 - Do: "Install the package."
 - Do not: "Perform an installation of the package."
@@ -163,7 +163,7 @@ Each rule has these fields:
 ### W4.3 Use 1 hedge or fewer in each sentence
 
 - Severity: warning
-- Checks: `ste_check`, `vale:STE.Hedges`
+- Checks: `ste`, `vale:STE.Hedges`
 - Limit: prose.hedges_per_sentence = 1
 - Why: Stacked hedges hide the fact. State a fact as a fact, and state doubt once.
 - Do: "The client is probably out of date."
@@ -190,7 +190,7 @@ Each rule has these fields:
 ### W5.1 Write an instruction in 20 words or fewer
 
 - Severity: error
-- Checks: `ste_check`
+- Checks: `ste`
 - Limit: prose.instruction_words = 20
 - Why: A reader who does a task reads one instruction, acts, and then reads the next one.
 - Do: "Stop the service before you change the config file."
@@ -241,7 +241,7 @@ Each rule has these fields:
 ### W6.1 Write a descriptive sentence in 25 words or fewer
 
 - Severity: error
-- Checks: `ste_check`, `vale:STE.SentenceLength`
+- Checks: `ste`, `vale:STE.SentenceLength`
 - Limit: prose.description_words = 25
 - Why: A long sentence makes the reader hold too many facts at the same time.
 - Do: "The cache keeps each entry for 10 minutes. After that, the next read gets a new value."
@@ -258,7 +258,7 @@ Each rule has these fields:
 ### W6.3 Write one topic per paragraph, in 6 sentences or fewer
 
 - Severity: warning
-- Checks: `ste_check`, `vale:STE.ParagraphLength`
+- Checks: `ste`, `vale:STE.ParagraphLength`
 - Limit: prose.paragraph_sentences = 6
 - Why: A paragraph is one unit of information. A reader can skip it or read it.
 - Do: a paragraph about the cache, then a new paragraph about the queue
@@ -277,7 +277,7 @@ Each rule has these fields:
 ### W7.1 Use the standard markers for risk
 
 - Severity: warning
-- Checks: `ste_check`, `vale:STE.Markers`
+- Checks: `ste`, `vale:STE.Markers`
 - Why: A reader must know the type of risk before reading the detail. Use WARNING for a risk to people, data, security, or production. Use CAUTION for a risk to a system or to work. Use NOTE for information only.
 - Do: "WARNING: Back up the database before you run this migration."
 - Do not: "Important: this migration might be risky."
@@ -285,7 +285,7 @@ Each rule has these fields:
 ### W7.2 Start a warning or a caution with a clear command
 
 - Severity: warning
-- Checks: `ste_check`
+- Checks: `ste`
 - Why: The command is the part that prevents the damage.
 - Do: "CAUTION: Do not run two deploys at the same time."
 - Do not: "CAUTION: It is not a good idea to run two deploys at the same time."
@@ -311,7 +311,7 @@ Each rule has these fields:
 ### W8.1 Count words the same way every time
 
 - Severity: warning
-- Checks: `ste_check`
+- Checks: `ste`
 - Why: A limit is useful only when everyone counts the same way. A number, a code span, a file name, and a hyphenated word each count as one word.
 - Do: count "Run `make test` on the read-only volume" as 6 words
 - Do not: count the code span as two words
@@ -319,7 +319,7 @@ Each rule has these fields:
 ### W8.2 Do not join sentences with a semicolon or a dash
 
 - Severity: warning
-- Checks: `ste_check`, `vale:STE.Joiners`
+- Checks: `ste`, `vale:STE.Joiners`
 - Why: A semicolon or a dash puts two ideas in one sentence.
 - Do: "The job failed. The disk is full."
 - Do not: "The job failed; the disk is full."
@@ -361,7 +361,7 @@ Each rule has these fields:
 ### W9.4 Do not change quoted text
 
 - Severity: warning
-- Checks: `ste_check`
+- Checks: `ste`
 - Why: A quote must show what the source said. The checker skips text in quotes and in block quotes.
 - Do: quote a log line exactly
 - Do not: rewrite a log line inside quotes

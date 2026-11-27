@@ -1,0 +1,47 @@
+[package]
+name = "llm-airlines-standard"
+version = "0.2.0"
+edition = "2021"
+rust-version = "1.82"
+license = "MIT"
+description = "STE (ASD-STE100) for agent prose and STE-C for code: the checker, the skill installer, and the build."
+repository = "https://github.com/maulanasdqn/llm-airlines-standard"
+publish = false
+
+[lib]
+name = "ste"
+path = "src/lib.rs"
+
+[[bin]]
+name = "ste"
+path = "src/main.rs"
+
+[dependencies]
+clap = { version = "4", features = ["derive"] }
+regex = "1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[dev-dependencies]
+tempfile = "3"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+
+[lints.rust]
+missing_docs = "allow"
+
+[lints.clippy]
+too_many_arguments = "warn"
+too_many_lines = "warn"
+cognitive_complexity = "warn"
+excessive_nesting = "warn"
+disallowed_names = "warn"
+min_ident_chars = "warn"
+wrong_self_convention = "warn"
+module_name_repetitions = "warn"
+fn_params_excessive_bools = "warn"
+struct_excessive_bools = "warn"
+unwrap_used = "warn"

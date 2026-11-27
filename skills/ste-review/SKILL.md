@@ -1,6 +1,6 @@
 ---
 name: ste-review
-description: Audit prose or code against STE (the ASD-STE100 writing rules) and STE-C (the code port), and report each break with its rule ID. The skill runs the bundled ste_check.py checker and the configured linters first. Then it reviews the rules that tools cannot find, such as a word with two meanings or a verb that breaks its contract. Use it to review a diff, a PR, a file, a doc, or a commit message. Also use it when the user asks to "check STE", "lint the prose", "review against the standard", or "find comments in the code".
+description: Audit prose or code against STE (the ASD-STE100 writing rules) and STE-C (the code port), and report each break with its rule ID. The skill runs the ste checker and the configured linters first. Then it reviews the rules that tools cannot find, such as a word with two meanings or a verb that breaks its contract. Use it to review a diff, a PR, a file, a doc, or a commit message. Also use it when the user asks to "check STE", "lint the prose", "review against the standard", or "find comments in the code".
 license: MIT
 ---
 
@@ -15,15 +15,20 @@ It reports each break. It does not change a file unless the user asks for a fix.
    - For a diff, list the changed files: `git diff --name-only main...HEAD`.
    - For a PR, read the files and the description.
    - For a commit message, save it to a file or pipe it to the checker.
-2. Run the checker from this skill. The script is `scripts/ste_check.py`, next to this file.
+2. Run the `ste` checker:
 
    ```sh
-   python3 scripts/ste_check.py prose README.md docs
-   python3 scripts/ste_check.py code src
-   python3 scripts/ste_check.py commit .git/COMMIT_EDITMSG
+   ste check prose README.md docs
+   ste check code src
+   ste check commit .git/COMMIT_EDITMSG
    ```
 
    Add `--format json` to get the findings as data. The exit code is 1 when there is an error.
+   If the `ste` command is not installed, tell the user how to install it. Then do the review by hand with the rules in `references/`:
+
+   ```sh
+   curl -fsSL https://raw.githubusercontent.com/maulanasdqn/llm-airlines-standard/main/install.sh | bash -s -- --binary-only
+   ```
 3. If the project has linter configs from the standard, run them. Look for `eslint.config.mjs`, `ruff.toml`, `.golangci.yml`, `clippy.toml`, and `.vale.ini`.
 4. Review the rules that tools cannot find. Use the list in the next section.
 5. Report the findings in the format of `references/finding-format.md`.

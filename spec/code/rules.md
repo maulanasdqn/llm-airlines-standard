@@ -35,7 +35,7 @@ The profiles are in the `profiles` folder.
 ### C1.3 Use one word for one meaning
 
 - Severity: warning
-- Checks: `ste_check`
+- Checks: `ste`
 - Why: Two verbs for one action look like two actions. Do not rotate synonyms.
 - Do: `getUser`, `getOrder`, `getInvoice`
 - Do not: `getUser`, `retrieveOrder`, `obtainInvoice`
@@ -51,7 +51,7 @@ The profiles are in the `profiles` folder.
 ### C1.5 Record every technical noun and technical verb in LEXICON.md
 
 - Severity: warning
-- Checks: `review`, `ste_check`
+- Checks: `review`, `ste`
 - Why: A domain word is clear only when the project defines it once.
 - Do: add `reconcile` to the technical verbs in LEXICON.md, with one meaning
 - Do not: use `reconcile`, `settle`, and `match` for the same ledger action
@@ -59,7 +59,7 @@ The profiles are in the `profiles` folder.
 ### C1.6 Do not use vague words in names
 
 - Severity: warning
-- Checks: `ste_check`, `eslint:id-denylist`, `clippy:disallowed_names`
+- Checks: `ste`, `eslint:id-denylist`, `clippy:disallowed_names`
 - Why: A vague word fits every name, so it tells the reader nothing.
 - Do: `parseInvoice`, `invoiceRows`, `dateFormat`
 - Do not: `handleInvoice`, `invoiceData`, `dateUtils`
@@ -67,7 +67,7 @@ The profiles are in the `profiles` folder.
 ### C1.7 Use only approved abbreviations
 
 - Severity: warning
-- Checks: `ste_check`, `revive:var-naming`
+- Checks: `ste`, `revive:var-naming`
 - Why: An abbreviation saves the writer a few keys and costs every reader a guess.
 - Do: `message`, `count`, `index`, `userId`
 - Do not: `msg`, `cnt`, `idx`, `usr`
@@ -85,7 +85,7 @@ The profiles are in the `profiles` folder.
 ### C2.1 Use 4 words or fewer in a name
 
 - Severity: warning
-- Checks: `ste_check`
+- Checks: `ste`
 - Limit: code.name_words = 4
 - Why: A name has one verb or one qualifier, and 3 nouns or fewer. A longer name is a noun cluster.
 - Do: `retryDelayMs`, `sendInvoiceEmail`
@@ -112,7 +112,7 @@ The profiles are in the `profiles` folder.
 ### C3.1 Start a function name with an approved verb
 
 - Severity: warning
-- Checks: `ste_check`
+- Checks: `ste`
 - Why: The verb tells the reader what the function does before the reader opens it. A profile can allow a noun name for a getter, a property, a constructor, or a component.
 - Do: `parseDate`, `fetchInvoice`, `isValid`
 - Do not: `dateParser`, `invoice`, `validity`
@@ -170,7 +170,7 @@ The profiles are in the `profiles` folder.
 ### C4.4 Use positive names and conditions
 
 - Severity: warning
-- Checks: `ste_check`, `eslint:no-negated-condition`, `ruff:SIM208`
+- Checks: `ste`, `eslint:no-negated-condition`, `ruff:SIM208`
 - Why: A negative name in a negative condition makes the reader do logic.
 - Do: `isEnabled`, `if (isEnabled)`
 - Do not: `isNotDisabled`, `if (!isNotDisabled)`
@@ -189,7 +189,7 @@ The profiles are in the `profiles` folder.
 ### C5.1 Write one task per function, in 40 lines or fewer
 
 - Severity: warning
-- Checks: `ste_check`, `eslint:max-lines-per-function`, `revive:function-length`, `clippy:too_many_lines`, `ruff:PLR0915`
+- Checks: `ste`, `eslint:max-lines-per-function`, `revive:function-length`, `clippy:too_many_lines`, `ruff:PLR0915`
 - Limit: code.function_lines = 40
 - Why: A function is one procedure. A reader must see all of it at one time. Blank lines do not count.
 - Do: `validateInvoice()`, `saveInvoice()`, `sendInvoiceEmail()`
@@ -241,7 +241,7 @@ The profiles are in the `profiles` folder.
 ### C5.7 Write one topic per source file, in 200 lines or fewer
 
 - Severity: error
-- Checks: `ste_check`, `eslint:max-lines`, `revive:file-length-limit`
+- Checks: `ste`, `eslint:max-lines`, `revive:file-length-limit`
 - Limit: code.file_lines = 200
 - Why: A file is a topic. A reader must be able to read one topic at one time. Blank lines do not count.
 - Do: `invoice/parse.ts`, `invoice/validate.ts`, `invoice/save.ts`
@@ -252,7 +252,7 @@ The profiles are in the `profiles` folder.
 ### C6.1 Write no comments
 
 - Severity: error
-- Checks: `ste_check`, `eslint:no-inline-comments`, `eslint:no-warning-comments`, `ruff:ERA001`
+- Checks: `ste`, `eslint:no-inline-comments`, `eslint:no-warning-comments`, `ruff:ERA001`
 - Why: A comment is a second copy of the code in a different language. The two copies drift apart. Make the code explain itself.
 - Do: `const isTrialExpired = trialEndsAt < now;`
 - Do not: `// check if the trial is over` above `if (t < n)`
@@ -260,7 +260,7 @@ The profiles are in the `profiles` folder.
 ### C6.2 Write no doc comments and no docstrings
 
 - Severity: error
-- Checks: `ste_check`
+- Checks: `ste`
 - Why: The name, the parameters, and the types describe a function. Put usage guides in Markdown docs that obey the W rules.
 - Do: `function parseInvoice(csv: string): Invoice`
 - Do not: a JSDoc block, a Python docstring, a Go doc comment, or a Rust `///` line
@@ -268,7 +268,7 @@ The profiles are in the `profiles` folder.
 ### C6.3 Keep only machine directives
 
 - Severity: error
-- Checks: `ste_check`
+- Checks: `ste`
 - Why: A machine directive is an instruction to a tool, not prose for a reader. A shebang, a license identifier, and a tool pragma are machine directives.
 - Do: `#!/usr/bin/env python3`, `# noqa: E501`, `//go:build linux`, `// eslint-disable-next-line no-console`
 - Do not: `// HACK: this is temporary`
@@ -318,7 +318,7 @@ The profiles are in the `profiles` folder.
 ### C7.3 Write an error message that says what failed, why, and what to do next
 
 - Severity: warning
-- Checks: `ste_check`, `revive:error-strings`
+- Checks: `ste`, `revive:error-strings`
 - Why: The error message is the only text that the user of the code reads. Include the value that failed. Obey the W rules.
 - Do: `Cannot read config file "app.toml": permission denied. Make the file readable by the current user.`
 - Do not: `Error!`, `Something went wrong`, `Invalid input`
@@ -344,7 +344,7 @@ The profiles are in the `profiles` folder.
 ### C8.2 Count the words in a name at case changes and underscores
 
 - Severity: warning
-- Checks: `ste_check`
+- Checks: `ste`
 - Why: Every tool and every reader must count the same way. An acronym is one word, and a number is one word.
 - Do: count `parseHTTPResponse` as 3 words, and `MAX_RETRY_COUNT` as 3 words
 - Do not: count `HTTP` as 4 words
@@ -394,7 +394,7 @@ The profiles are in the `profiles` folder.
 ### C9.4 Write a commit subject in the imperative, in 50 characters or fewer
 
 - Severity: error
-- Checks: `ste_check`
+- Checks: `ste`
 - Limit: commit.subject_chars = 50
 - Limit: commit.subject_hard_chars = 72
 - Limit: commit.body_line_chars = 72
