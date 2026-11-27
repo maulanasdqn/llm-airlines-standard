@@ -12,6 +12,7 @@ pub mod names;
 pub mod output;
 pub mod prose;
 pub mod prose_rules;
+pub mod regex;
 pub mod rotation;
 pub mod script_names;
 pub mod sentences;
