@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-labelledby="title description">
+  <title id="title">How the build works</title>
+  <desc id="description">The spec folder goes into tools/build.py. The build writes the skills, the AGENTS.md templates, and the linter configs. The installer and the ste-adopt skill put them in your repository.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="4.5" markerHeight="4.5" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10Z" fill="#7FB2FF"/>
+    </marker>
+  </defs>
+  <rect width="1280" height="400" rx="28" fill="#0B1F3A"/>
+  <g fill="none" stroke="#7FB2FF" stroke-width="3" marker-end="url(#arrow)">
+    <path d="M250 200H292"/>
+    <path d="M510 200C540 200 540 75 562 75"/>
+    <path d="M510 200H562"/>
+    <path d="M510 200C540 200 540 325 562 325"/>
+    <path d="M950 75C980 75 980 200 1002 200"/>
+    <path d="M950 200H1002"/>
+    <path d="M950 325C980 325 980 200 1002 200"/>
+  </g>
+  <g font-family="Inter, ui-sans-serif, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif">
+    <rect x="30" y="140" width="220" height="120" rx="16" fill="#12345E" stroke="#F2B134" stroke-width="3"/>
+    <text x="140" y="188" text-anchor="middle" font-size="24" font-weight="700" fill="#FFFFFF">spec/</text>
+    <text x="140" y="216" text-anchor="middle" font-size="15" fill="#B8C7DC">rules, dictionary,</text>
+    <text x="140" y="237" text-anchor="middle" font-size="15" fill="#B8C7DC">language profiles</text>
+    <rect x="300" y="160" width="210" height="80" rx="16" fill="#12345E" stroke="#2E5A8F" stroke-width="3"/>
+    <text x="405" y="196" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">tools/build.py</text>
+    <text x="405" y="221" text-anchor="middle" font-size="15" fill="#B8C7DC">--check finds drift</text>
+    <rect x="570" y="30" width="380" height="90" rx="16" fill="#12345E" stroke="#2E5A8F" stroke-width="3"/>
+    <text x="760" y="68" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">skills/</text>
+    <text x="760" y="96" text-anchor="middle" font-size="15" fill="#B8C7DC">ste-writing, ste-code, ste-review, ste-adopt</text>
+    <rect x="570" y="155" width="380" height="90" rx="16" fill="#12345E" stroke="#2E5A8F" stroke-width="3"/>
+    <text x="760" y="193" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">templates/agents/</text>
+    <text x="760" y="221" text-anchor="middle" font-size="15" fill="#B8C7DC">base, docs, typescript, python, go, rust</text>
+    <rect x="570" y="280" width="380" height="90" rx="16" fill="#12345E" stroke="#2E5A8F" stroke-width="3"/>
+    <text x="760" y="318" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">linters/</text>
+    <text x="760" y="346" text-anchor="middle" font-size="15" fill="#B8C7DC">Vale, ESLint, ruff, golangci-lint, clippy</text>
+    <rect x="1010" y="135" width="240" height="130" rx="16" fill="#12345E" stroke="#4CC38A" stroke-width="3"/>
+    <text x="1130" y="176" text-anchor="middle" font-size="22" font-weight="700" fill="#FFFFFF">Your repository</text>
+    <text x="1130" y="204" text-anchor="middle" font-size="15" fill="#B8C7DC">install.sh or ste-adopt</text>
+    <text x="1130" y="226" text-anchor="middle" font-size="15" fill="#B8C7DC">AGENTS.md, LEXICON.md,</text>
+    <text x="1130" y="248" text-anchor="middle" font-size="15" fill="#B8C7DC">tools/ste/ste_check.py</text>
+  </g>
+</svg>

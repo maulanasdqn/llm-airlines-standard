@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/images/logo.svg" alt="The llm-airlines-standard logo: a jet with contrails made of short lines of text" width="100%">
+</p>
+
 # llm-airlines-standard
 
 Aircraft maintenance manuals use a controlled language, so that no technician can misread an instruction.
@@ -40,6 +44,12 @@ The map of each STE section to its code rules is in `spec/code/mapping.md`.
 | `linters/` | Configs for Vale, ESLint, ruff, golangci-lint, and clippy, and a git `commit-msg` hook |
 | `spec/` | The rules, the dictionary, and the language profiles |
 | `install.sh`, `tools/install.py` | The installer for the skills |
+| `docs/images/` | The logo and the build diagram |
+
+The build reads the rules in `spec/` and writes the skills, the templates, and the linter configs.
+The installer and the `ste-adopt` skill put them in your repository.
+
+![The build reads spec/ and writes skills/, templates/agents/, and linters/. The installer puts them in your repository.](docs/images/pipeline.svg)
 
 ## Install the skills
 
