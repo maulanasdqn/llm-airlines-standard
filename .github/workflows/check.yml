@@ -11,11 +11,17 @@ permissions:
 jobs:
   standard:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.9", "3.13"]
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.9"
+      - uses: astral-sh/setup-uv@v6
+      - name: Create a Python ${{ matrix.python }} environment
+        run: |
+          uv venv --python "${{ matrix.python }}" "$RUNNER_TEMP/venv"
+          echo "$RUNNER_TEMP/venv/bin" >> "$GITHUB_PATH"
+      - run: python3 --version
       - run: python3 tools/build.py --check
       - run: python3 -m unittest discover -s tests
       - run: python3 skills/ste-review/scripts/ste_check.py prose .
