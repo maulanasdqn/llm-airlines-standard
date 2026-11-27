@@ -1,0 +1,26 @@
+[package]
+name = "ste-fixture-good"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+path = "src/lib.rs"
+
+[workspace]
+
+[lints.rust]
+missing_docs = "allow"
+
+[lints.clippy]
+too_many_arguments = "warn"
+too_many_lines = "warn"
+cognitive_complexity = "warn"
+excessive_nesting = "warn"
+disallowed_names = "warn"
+min_ident_chars = "warn"
+wrong_self_convention = "warn"
+module_name_repetitions = "warn"
+fn_params_excessive_bools = "warn"
+struct_excessive_bools = "warn"
+unwrap_used = "warn"

@@ -1,0 +1,2042 @@
+{
+  "rules": {
+    "W1.1": {
+      "title": "Use one word for one meaning",
+      "severity": "warning"
+    },
+    "W1.2": {
+      "title": "Give a word only one meaning",
+      "severity": "warning"
+    },
+    "W1.3": {
+      "title": "Use a word as one part of speech only",
+      "severity": "warning"
+    },
+    "W1.4": {
+      "title": "Use simple words, and do not use the words in the words-to-avoid list",
+      "severity": "warning"
+    },
+    "W1.5": {
+      "title": "Define a technical noun or a technical verb before you use it",
+      "severity": "warning"
+    },
+    "W1.6": {
+      "title": "Do not use idioms or slang",
+      "severity": "warning"
+    },
+    "W1.7": {
+      "title": "Use one spelling convention",
+      "severity": "warning"
+    },
+    "W1.8": {
+      "title": "Write an abbreviation in full the first time you use it",
+      "severity": "warning"
+    },
+    "W2.1": {
+      "title": "Use 3 nouns or fewer in a noun cluster",
+      "severity": "warning"
+    },
+    "W2.2": {
+      "title": "Break a long noun cluster with a preposition or a clause",
+      "severity": "warning"
+    },
+    "W2.3": {
+      "title": "Use a hyphen to join words that act as one modifier",
+      "severity": "warning"
+    },
+    "W3.1": {
+      "title": "Use only simple verb forms",
+      "severity": "warning"
+    },
+    "W3.2": {
+      "title": "Do not use \"-ing\" verb forms",
+      "severity": "warning"
+    },
+    "W3.3": {
+      "title": "Use the active voice",
+      "severity": "warning"
+    },
+    "W3.4": {
+      "title": "Use a verb for an action, not a noun phrase",
+      "severity": "warning"
+    },
+    "W4.1": {
+      "title": "Write one idea per sentence",
+      "severity": "warning"
+    },
+    "W4.2": {
+      "title": "Do not leave out words to make a sentence shorter",
+      "severity": "warning"
+    },
+    "W4.3": {
+      "title": "Use 1 hedge or fewer in each sentence",
+      "severity": "warning"
+    },
+    "W4.4": {
+      "title": "Use a vertical list for 3 or more steps, items, or conditions",
+      "severity": "warning"
+    },
+    "W4.5": {
+      "title": "Write positive statements",
+      "severity": "warning"
+    },
+    "W5.1": {
+      "title": "Write an instruction in 20 words or fewer",
+      "severity": "error"
+    },
+    "W5.2": {
+      "title": "Write one instruction per sentence",
+      "severity": "warning"
+    },
+    "W5.3": {
+      "title": "Use the imperative form for an instruction",
+      "severity": "warning"
+    },
+    "W5.4": {
+      "title": "Put a condition before the instruction",
+      "severity": "warning"
+    },
+    "W5.5": {
+      "title": "Write the steps in the sequence the reader does them, and number them",
+      "severity": "warning"
+    },
+    "W5.6": {
+      "title": "Keep notes out of the steps",
+      "severity": "warning"
+    },
+    "W6.1": {
+      "title": "Write a descriptive sentence in 25 words or fewer",
+      "severity": "error"
+    },
+    "W6.2": {
+      "title": "Put the most important information first",
+      "severity": "warning"
+    },
+    "W6.3": {
+      "title": "Write one topic per paragraph, in 6 sentences or fewer",
+      "severity": "warning"
+    },
+    "W6.4": {
+      "title": "Use headings, lists, and tables to show structure",
+      "severity": "warning"
+    },
+    "W7.1": {
+      "title": "Use the standard markers for risk",
+      "severity": "warning"
+    },
+    "W7.2": {
+      "title": "Start a warning or a caution with a clear command",
+      "severity": "warning"
+    },
+    "W7.3": {
+      "title": "Give the risk after the command",
+      "severity": "warning"
+    },
+    "W7.4": {
+      "title": "Put a warning or a caution before the step that it applies to",
+      "severity": "warning"
+    },
+    "W8.1": {
+      "title": "Count words the same way every time",
+      "severity": "warning"
+    },
+    "W8.2": {
+      "title": "Do not join sentences with a semicolon or a dash",
+      "severity": "warning"
+    },
+    "W8.3": {
+      "title": "End each sentence with a period, and use a colon before a list",
+      "severity": "warning"
+    },
+    "W9.1": {
+      "title": "Use the same term, format, and structure for the same thing",
+      "severity": "warning"
+    },
+    "W9.2": {
+      "title": "Write for a reader who has no context",
+      "severity": "warning"
+    },
+    "W9.3": {
+      "title": "Keep every fact, number, condition, and qualifier when you simplify",
+      "severity": "error"
+    },
+    "W9.4": {
+      "title": "Do not change quoted text",
+      "severity": "warning"
+    },
+    "W9.5": {
+      "title": "Do not change text that already obeys the rules",
+      "severity": "warning"
+    },
+    "C1.1": {
+      "title": "Use words from the dictionary or the project lexicon in names",
+      "severity": "warning"
+    },
+    "C1.2": {
+      "title": "Give a word one meaning in the whole codebase",
+      "severity": "warning"
+    },
+    "C1.3": {
+      "title": "Use one word for one meaning",
+      "severity": "warning"
+    },
+    "C1.4": {
+      "title": "Use a verb for a function, a noun for a value, and a predicate for a boolean",
+      "severity": "warning"
+    },
+    "C1.5": {
+      "title": "Record every technical noun and technical verb in LEXICON.md",
+      "severity": "warning"
+    },
+    "C1.6": {
+      "title": "Do not use vague words in names",
+      "severity": "warning"
+    },
+    "C1.7": {
+      "title": "Use only approved abbreviations",
+      "severity": "warning"
+    },
+    "C1.8": {
+      "title": "Put the unit in the name when the type does not carry it",
+      "severity": "warning"
+    },
+    "C2.1": {
+      "title": "Use 4 words or fewer in a name",
+      "severity": "warning"
+    },
+    "C2.2": {
+      "title": "Use a module, a type, or an options object instead of a longer name",
+      "severity": "warning"
+    },
+    "C2.3": {
+      "title": "Do not repeat the context in a name",
+      "severity": "warning"
+    },
+    "C3.1": {
+      "title": "Start a function name with an approved verb",
+      "severity": "warning"
+    },
+    "C3.2": {
+      "title": "Keep the contract of the verb",
+      "severity": "error"
+    },
+    "C3.3": {
+      "title": "Use the imperative for a command and the simple past for an event",
+      "severity": "warning"
+    },
+    "C3.4": {
+      "title": "Put every effect of a function in its name",
+      "severity": "error"
+    },
+    "C4.1": {
+      "title": "Write one action per statement",
+      "severity": "warning"
+    },
+    "C4.2": {
+      "title": "Give a name to an intermediate result",
+      "severity": "warning"
+    },
+    "C4.3": {
+      "title": "Do not leave out words",
+      "severity": "warning"
+    },
+    "C4.4": {
+      "title": "Use positive names and conditions",
+      "severity": "warning"
+    },
+    "C4.5": {
+      "title": "Put more than 3 arguments or conditions on separate lines, or give them names",
+      "severity": "warning"
+    },
+    "C5.1": {
+      "title": "Write one task per function, in 40 lines or fewer",
+      "severity": "warning"
+    },
+    "C5.2": {
+      "title": "Put the condition first",
+      "severity": "warning"
+    },
+    "C5.3": {
+      "title": "Write the steps in execution order",
+      "severity": "warning"
+    },
+    "C5.4": {
+      "title": "Keep the nesting depth to 3 or less and the complexity to 10 or less",
+      "severity": "warning"
+    },
+    "C5.5": {
+      "title": "Use 3 positional parameters or fewer",
+      "severity": "warning"
+    },
+    "C5.6": {
+      "title": "Make a script stop at the first error",
+      "severity": "error"
+    },
+    "C5.7": {
+      "title": "Write one topic per source file, in 200 lines or fewer",
+      "severity": "error"
+    },
+    "C6.1": {
+      "title": "Write no comments",
+      "severity": "error"
+    },
+    "C6.2": {
+      "title": "Write no doc comments and no docstrings",
+      "severity": "error"
+    },
+    "C6.3": {
+      "title": "Keep only machine directives",
+      "severity": "error"
+    },
+    "C6.4": {
+      "title": "Replace a comment with code",
+      "severity": "warning"
+    },
+    "C6.5": {
+      "title": "Show every failure mode in the signature or in the error type",
+      "severity": "warning"
+    },
+    "C6.6": {
+      "title": "Write the reason for a change in the commit, the PR, or the docs",
+      "severity": "warning"
+    },
+    "C7.1": {
+      "title": "Put the risk in the name of a destructive or unsafe operation",
+      "severity": "error"
+    },
+    "C7.2": {
+      "title": "Give a destructive operation a safe default and an explicit opt-in",
+      "severity": "error"
+    },
+    "C7.3": {
+      "title": "Write an error message that says what failed, why, and what to do next",
+      "severity": "warning"
+    },
+    "C7.4": {
+      "title": "Write one event per log line, in the simple past",
+      "severity": "warning"
+    },
+    "C8.1": {
+      "title": "Let the formatter decide the layout",
+      "severity": "warning"
+    },
+    "C8.2": {
+      "title": "Count the words in a name at case changes and underscores",
+      "severity": "warning"
+    },
+    "C8.3": {
+      "title": "Take every limit from the standard",
+      "severity": "warning"
+    },
+    "C8.4": {
+      "title": "Write acronyms in the case that the profile sets",
+      "severity": "warning"
+    },
+    "C9.1": {
+      "title": "Keep a LEXICON.md file",
+      "severity": "warning"
+    },
+    "C9.2": {
+      "title": "Follow the existing convention of the project",
+      "severity": "warning"
+    },
+    "C9.3": {
+      "title": "When a meaning changes, rename the name everywhere",
+      "severity": "warning"
+    },
+    "C9.4": {
+      "title": "Write a commit subject in the imperative, in 50 characters or fewer",
+      "severity": "error"
+    },
+    "C9.5": {
+      "title": "Write PR descriptions and agent handoffs with the W rules",
+      "severity": "warning"
+    }
+  },
+  "limits": {
+    "prose": {
+      "noun_cluster_words": 3,
+      "hedges_per_sentence": 1,
+      "instruction_words": 20,
+      "description_words": 25,
+      "paragraph_sentences": 6
+    },
+    "code": {
+      "name_words": 4,
+      "list_items": 3,
+      "function_lines": 40,
+      "nesting_depth": 3,
+      "complexity": 10,
+      "positional_params": 3,
+      "file_lines": 200
+    },
+    "commit": {
+      "subject_chars": 50,
+      "subject_hard_chars": 72,
+      "body_line_chars": 72
+    }
+  },
+  "dictionary": {
+    "verbs": [
+      {
+        "word": "get",
+        "meaning": "Return a value that is already in memory. No I/O.",
+        "not_for": "network (fetch), storage (load), slow work (compute)"
+      },
+      {
+        "word": "set",
+        "meaning": "Replace one value in memory.",
+        "not_for": "a change to a stored entity (update)"
+      },
+      {
+        "word": "find",
+        "meaning": "Search for one item. Return nothing when there is no match.",
+        "not_for": "a search that must succeed (get)"
+      },
+      {
+        "word": "list",
+        "meaning": "Return all items that match, as a collection. The collection can be empty.",
+        "not_for": "one item (find)"
+      },
+      {
+        "word": "count",
+        "meaning": "Return the number of items.",
+        "not_for": "the items themselves (list)"
+      },
+      {
+        "word": "fetch",
+        "meaning": "Get a value from a remote system over the network.",
+        "not_for": "local storage (load)"
+      },
+      {
+        "word": "load",
+        "meaning": "Read a stored value from a disk, a database, or a cache into memory.",
+        "not_for": "network calls (fetch)"
+      },
+      {
+        "word": "save",
+        "meaning": "Write a value to persistent storage. Create it or replace it.",
+        "not_for": "a stream (write)"
+      },
+      {
+        "word": "read",
+        "meaning": "Read bytes, lines, or records from a stream or a file.",
+        "not_for": "a parsed value (parse or load)"
+      },
+      {
+        "word": "write",
+        "meaning": "Write bytes, lines, or records to a stream or a file.",
+        "not_for": "a stored entity (save)"
+      },
+      {
+        "word": "create",
+        "meaning": "Make a new persistent entity and give it an identity. Fail if it exists.",
+        "not_for": "a value in memory only (build)"
+      },
+      {
+        "word": "build",
+        "meaning": "Construct a value in memory from its parts. No I/O.",
+        "not_for": "a persistent entity (create)"
+      },
+      {
+        "word": "update",
+        "meaning": "Change some fields of an existing entity. Fail if it does not exist.",
+        "not_for": "a value in memory (set)"
+      },
+      {
+        "word": "delete",
+        "meaning": "Remove an entity from storage permanently.",
+        "not_for": "an item in a collection (remove)"
+      },
+      {
+        "word": "add",
+        "meaning": "Put an item into a collection.",
+        "not_for": "a new persistent entity (create)"
+      },
+      {
+        "word": "remove",
+        "meaning": "Take an item out of a collection. The item can still exist in other places.",
+        "not_for": "permanent removal from storage (delete)"
+      },
+      {
+        "word": "insert",
+        "meaning": "Put an item into a collection at a given position.",
+        "not_for": "a collection with no order (add)"
+      },
+      {
+        "word": "append",
+        "meaning": "Put an item at the end of a sequence.",
+        "not_for": "a collection with no order (add)"
+      },
+      {
+        "word": "clear",
+        "meaning": "Remove all items from a collection.",
+        "not_for": "a full object state (reset)"
+      },
+      {
+        "word": "reset",
+        "meaning": "Put an object back into its initial state.",
+        "not_for": "a collection only (clear)"
+      },
+      {
+        "word": "replace",
+        "meaning": "Put a new value in the place of an old value.",
+        "not_for": "a partial change (update)"
+      },
+      {
+        "word": "rename",
+        "meaning": "Give an existing item a new name.",
+        "not_for": "a move to a different location (move)"
+      },
+      {
+        "word": "move",
+        "meaning": "Put an existing item in a different location.",
+        "not_for": "a duplicate (copy)"
+      },
+      {
+        "word": "copy",
+        "meaning": "Make an independent duplicate.",
+        "not_for": "a shared reference (get)"
+      },
+      {
+        "word": "parse",
+        "meaning": "Convert text or bytes into a structured value. Fail on bad input.",
+        "not_for": "output for people (format)"
+      },
+      {
+        "word": "format",
+        "meaning": "Convert a structured value into text for people.",
+        "not_for": "a wire format (encode)"
+      },
+      {
+        "word": "encode",
+        "meaning": "Convert a value into a wire format or a storage format.",
+        "not_for": "text for people (format)"
+      },
+      {
+        "word": "decode",
+        "meaning": "Convert a wire format or a storage format into a value.",
+        "not_for": "free text (parse)"
+      },
+      {
+        "word": "to",
+        "meaning": "Convert a value to a different type. No side effects.",
+        "not_for": "a conversion that can fail (parse)"
+      },
+      {
+        "word": "normalize",
+        "meaning": "Convert a value into its one canonical form.",
+        "not_for": "a check (validate)"
+      },
+      {
+        "word": "escape",
+        "meaning": "Replace special characters so that a different language reads the text literally.",
+        "not_for": "a removal of characters (strip)"
+      },
+      {
+        "word": "strip",
+        "meaning": "Remove characters or markup from text.",
+        "not_for": "a removal of a collection item (remove)"
+      },
+      {
+        "word": "split",
+        "meaning": "Divide one value into a sequence of parts.",
+        "not_for": "a filter of items (filter)"
+      },
+      {
+        "word": "join",
+        "meaning": "Combine a sequence of parts into one value.",
+        "not_for": "a combination of two records (merge)"
+      },
+      {
+        "word": "merge",
+        "meaning": "Combine two or more records into one record.",
+        "not_for": "a sequence of text parts (join)"
+      },
+      {
+        "word": "sort",
+        "meaning": "Put items in order.",
+        "not_for": "a removal of items (filter)"
+      },
+      {
+        "word": "filter",
+        "meaning": "Keep only the items that match a condition.",
+        "not_for": "one item (find)"
+      },
+      {
+        "word": "map",
+        "meaning": "Apply one function to each item and return the results.",
+        "not_for": "side effects only (apply)"
+      },
+      {
+        "word": "compare",
+        "meaning": "Return the order of two values or the difference between them.",
+        "not_for": "a pass or fail result (validate)"
+      },
+      {
+        "word": "match",
+        "meaning": "Test a value against a pattern. Return the match or nothing.",
+        "not_for": "a rule set (validate)"
+      },
+      {
+        "word": "compute",
+        "meaning": "Derive a value from inputs. No side effects. It can be slow.",
+        "not_for": "a value in memory (get)"
+      },
+      {
+        "word": "measure",
+        "meaning": "Record the size, the duration, or the rate of an operation.",
+        "not_for": "a count of items (count)"
+      },
+      {
+        "word": "validate",
+        "meaning": "Test a value against rules. Return the result or the list of errors. Do not throw for bad input.",
+        "not_for": "a guard that throws (assert)"
+      },
+      {
+        "word": "assert",
+        "meaning": "Test a condition. Throw or panic when it is false.",
+        "not_for": "a test that returns a result (validate)"
+      },
+      {
+        "word": "ensure",
+        "meaning": "Make a condition true. Do nothing when it is already true.",
+        "not_for": "a test only (validate)"
+      },
+      {
+        "word": "resolve",
+        "meaning": "Find the final value of a reference, such as a path, a host name, or a promise.",
+        "not_for": "a search in a collection (find)"
+      },
+      {
+        "word": "send",
+        "meaning": "Transmit a message to one known receiver.",
+        "not_for": "an event for many listeners (emit)"
+      },
+      {
+        "word": "emit",
+        "meaning": "Publish an event to zero or more listeners. Do not wait for them.",
+        "not_for": "one known receiver (send)"
+      },
+      {
+        "word": "subscribe",
+        "meaning": "Register a listener for an event.",
+        "not_for": "a registry entry (register)"
+      },
+      {
+        "word": "unsubscribe",
+        "meaning": "Remove a listener for an event.",
+        "not_for": "a registry entry (unregister)"
+      },
+      {
+        "word": "register",
+        "meaning": "Add an item to a registry so that other code can find it.",
+        "not_for": "an event listener (subscribe)"
+      },
+      {
+        "word": "unregister",
+        "meaning": "Remove an item from a registry.",
+        "not_for": "an event listener (unsubscribe)"
+      },
+      {
+        "word": "start",
+        "meaning": "Begin a process, a service, or a timer that runs for a long time.",
+        "not_for": "a job that runs to completion (run)"
+      },
+      {
+        "word": "stop",
+        "meaning": "End a process, a service, or a timer.",
+        "not_for": "an operation that did not begin (cancel)"
+      },
+      {
+        "word": "run",
+        "meaning": "Execute a job, a command, or a task to completion.",
+        "not_for": "a long-running service (start)"
+      },
+      {
+        "word": "cancel",
+        "meaning": "Stop a pending operation before it completes.",
+        "not_for": "a running service (stop)"
+      },
+      {
+        "word": "schedule",
+        "meaning": "Arrange an operation to run at a later time.",
+        "not_for": "an operation that runs now (run)"
+      },
+      {
+        "word": "wait",
+        "meaning": "Block until a condition is true or a timeout ends.",
+        "not_for": "a later operation (schedule)"
+      },
+      {
+        "word": "retry",
+        "meaning": "Run an operation again after it fails.",
+        "not_for": "the first attempt (run)"
+      },
+      {
+        "word": "open",
+        "meaning": "Acquire a resource handle, such as a file or a connection.",
+        "not_for": "a network session (connect)"
+      },
+      {
+        "word": "close",
+        "meaning": "Release a resource handle.",
+        "not_for": "a network session (disconnect)"
+      },
+      {
+        "word": "connect",
+        "meaning": "Start a session with a remote system.",
+        "not_for": "a local file (open)"
+      },
+      {
+        "word": "disconnect",
+        "meaning": "End a session with a remote system.",
+        "not_for": "a local file (close)"
+      },
+      {
+        "word": "lock",
+        "meaning": "Get exclusive access to a resource.",
+        "not_for": "a permission change (disable)"
+      },
+      {
+        "word": "unlock",
+        "meaning": "Release exclusive access to a resource.",
+        "not_for": "a permission change (enable)"
+      },
+      {
+        "word": "enable",
+        "meaning": "Turn on a feature or a setting.",
+        "not_for": "a service (start)"
+      },
+      {
+        "word": "disable",
+        "meaning": "Turn off a feature or a setting.",
+        "not_for": "a service (stop)"
+      },
+      {
+        "word": "apply",
+        "meaning": "Put a change, a patch, or a configuration into effect on a target.",
+        "not_for": "a conversion (map)"
+      },
+      {
+        "word": "render",
+        "meaning": "Produce output for display, such as a page, a view, or a template.",
+        "not_for": "text for a log (format)"
+      },
+      {
+        "word": "show",
+        "meaning": "Make a user interface element visible.",
+        "not_for": "output to a stream (write)"
+      },
+      {
+        "word": "hide",
+        "meaning": "Make a user interface element invisible.",
+        "not_for": "a removal (remove)"
+      },
+      {
+        "word": "log",
+        "meaning": "Write one event to the log.",
+        "not_for": "output for the user (write)"
+      },
+      {
+        "word": "import",
+        "meaning": "Bring external records into the system.",
+        "not_for": "a stored value (load)"
+      },
+      {
+        "word": "export",
+        "meaning": "Send records out of the system in an external format.",
+        "not_for": "a stored value (save)"
+      },
+      {
+        "word": "upload",
+        "meaning": "Send a file to a remote system.",
+        "not_for": "a message (send)"
+      },
+      {
+        "word": "download",
+        "meaning": "Get a file from a remote system.",
+        "not_for": "a structured value (fetch)"
+      },
+      {
+        "word": "install",
+        "meaning": "Put a package, a hook, or a component in place so that it can run.",
+        "not_for": "a registry entry (register)"
+      },
+      {
+        "word": "uninstall",
+        "meaning": "Remove an installed package, hook, or component.",
+        "not_for": "a stored entity (delete)"
+      },
+      {
+        "word": "push",
+        "meaning": "Put an item on the top of a stack or the end of a queue.",
+        "not_for": "a collection with no order (add)"
+      },
+      {
+        "word": "pop",
+        "meaning": "Take the item from the top of a stack or the front of a queue.",
+        "not_for": "a collection with no order (remove)"
+      },
+      {
+        "word": "wrap",
+        "meaning": "Put a value inside a different value that adds context.",
+        "not_for": "a type conversion (to)"
+      },
+      {
+        "word": "accept",
+        "meaning": "Take an incoming request, a connection, or an offer.",
+        "not_for": "a check (validate)"
+      },
+      {
+        "word": "reject",
+        "meaning": "Refuse an incoming request, a connection, or an offer.",
+        "not_for": "a removal (remove)"
+      },
+      {
+        "word": "test",
+        "meaning": "Make sure that code obeys its contract. Use it only in test code.",
+        "not_for": "production checks (validate)"
+      }
+    ],
+    "predicates": [
+      {
+        "word": "is",
+        "meaning": "The value is in a state or belongs to a kind."
+      },
+      {
+        "word": "has",
+        "meaning": "The value owns or contains an item."
+      },
+      {
+        "word": "can",
+        "meaning": "The actor has the permission or the capability."
+      },
+      {
+        "word": "should",
+        "meaning": "A policy decides that the action is correct."
+      }
+    ],
+    "prefixes": [
+      {
+        "word": "on",
+        "meaning": "An event callback. The rest of the name is the event.",
+        "example": "onOrderCanceled"
+      },
+      {
+        "word": "try",
+        "meaning": "Return a result or nothing instead of an exception. The next word is an approved verb.",
+        "example": "tryParseDate"
+      }
+    ],
+    "avoid_verbs": [
+      {
+        "word": "handle",
+        "use": "the exact verb, or on<Event> for a callback"
+      },
+      {
+        "word": "process",
+        "use": "parse, validate, to, or compute"
+      },
+      {
+        "word": "manage",
+        "use": "the exact verb: create, update, delete, or schedule"
+      },
+      {
+        "word": "do",
+        "use": "the exact verb"
+      },
+      {
+        "word": "perform",
+        "use": "run, or the exact verb"
+      },
+      {
+        "word": "execute",
+        "use": "run"
+      },
+      {
+        "word": "retrieve",
+        "use": "get, fetch, or load"
+      },
+      {
+        "word": "obtain",
+        "use": "get, fetch, or load"
+      },
+      {
+        "word": "grab",
+        "use": "get, fetch, or load"
+      },
+      {
+        "word": "modify",
+        "use": "update or set"
+      },
+      {
+        "word": "change",
+        "use": "update or set"
+      },
+      {
+        "word": "edit",
+        "use": "update or set"
+      },
+      {
+        "word": "alter",
+        "use": "update or set"
+      },
+      {
+        "word": "destroy",
+        "use": "delete"
+      },
+      {
+        "word": "erase",
+        "use": "delete"
+      },
+      {
+        "word": "purge",
+        "use": "delete"
+      },
+      {
+        "word": "kill",
+        "use": "stop"
+      },
+      {
+        "word": "terminate",
+        "use": "stop"
+      },
+      {
+        "word": "halt",
+        "use": "stop"
+      },
+      {
+        "word": "make",
+        "use": "build or create"
+      },
+      {
+        "word": "calculate",
+        "use": "compute"
+      },
+      {
+        "word": "calc",
+        "use": "compute"
+      },
+      {
+        "word": "check",
+        "use": "validate, assert, or a predicate such as is or has"
+      },
+      {
+        "word": "verify",
+        "use": "validate or assert"
+      },
+      {
+        "word": "init",
+        "use": "start, create, or build"
+      },
+      {
+        "word": "initialize",
+        "use": "start, create, or build"
+      },
+      {
+        "word": "setup",
+        "use": "start, create, build, or install"
+      },
+      {
+        "word": "populate",
+        "use": "load or set"
+      },
+      {
+        "word": "fill",
+        "use": "load or set"
+      }
+    ],
+    "avoid_nouns": [
+      {
+        "word": "data",
+        "use": "the name of what it holds: rows, payload, invoice"
+      },
+      {
+        "word": "info",
+        "use": "the name of what it holds"
+      },
+      {
+        "word": "stuff",
+        "use": "the name of what it holds"
+      },
+      {
+        "word": "thing",
+        "use": "the name of what it is"
+      },
+      {
+        "word": "things",
+        "use": "the name of what they are"
+      },
+      {
+        "word": "obj",
+        "use": "the name of what it is"
+      },
+      {
+        "word": "val",
+        "use": "the name of what it is"
+      },
+      {
+        "word": "tmp",
+        "use": "the name of what it holds"
+      },
+      {
+        "word": "res",
+        "use": "response or result"
+      },
+      {
+        "word": "ret",
+        "use": "the name of what the function returns"
+      },
+      {
+        "word": "foo",
+        "use": "a real name"
+      },
+      {
+        "word": "baz",
+        "use": "a real name"
+      },
+      {
+        "word": "util",
+        "use": "the name of the domain: dates, paths, money"
+      },
+      {
+        "word": "utils",
+        "use": "the name of the domain: dates, paths, money"
+      },
+      {
+        "word": "helper",
+        "use": "the name of the domain or the role"
+      },
+      {
+        "word": "helpers",
+        "use": "the name of the domain or the role"
+      },
+      {
+        "word": "misc",
+        "use": "the name of the domain"
+      },
+      {
+        "word": "manager",
+        "use": "the name of the role: store, scheduler, registry, router"
+      },
+      {
+        "word": "handler",
+        "use": "the name of the role, or on<Event> for a callback"
+      },
+      {
+        "word": "processor",
+        "use": "the name of the role: parser, validator, converter"
+      },
+      {
+        "word": "impl",
+        "use": "the name of the variant"
+      }
+    ],
+    "abbreviations": {
+      "approved": [
+        "id",
+        "ids",
+        "url",
+        "urls",
+        "uri",
+        "http",
+        "https",
+        "api",
+        "json",
+        "xml",
+        "html",
+        "css",
+        "sql",
+        "csv",
+        "pdf",
+        "db",
+        "io",
+        "ui",
+        "os",
+        "cpu",
+        "gpu",
+        "ip",
+        "tcp",
+        "udp",
+        "tls",
+        "dns",
+        "jwt",
+        "uuid",
+        "utc",
+        "max",
+        "min",
+        "config",
+        "env",
+        "app",
+        "auth",
+        "admin",
+        "repo",
+        "ms",
+        "ns",
+        "ok",
+        "args",
+        "ctx",
+        "err",
+        "src",
+        "dst",
+        "dir",
+        "stdin",
+        "stdout",
+        "stderr",
+        "async",
+        "sync",
+        "regex",
+        "ast",
+        "cli",
+        "sdk",
+        "ttl",
+        "pr",
+        "ci",
+        "md"
+      ],
+      "avoid": [
+        {
+          "word": "usr",
+          "use": "user"
+        },
+        {
+          "word": "pwd",
+          "use": "password"
+        },
+        {
+          "word": "passwd",
+          "use": "password"
+        },
+        {
+          "word": "msg",
+          "use": "message"
+        },
+        {
+          "word": "msgs",
+          "use": "messages"
+        },
+        {
+          "word": "btn",
+          "use": "button"
+        },
+        {
+          "word": "cnt",
+          "use": "count"
+        },
+        {
+          "word": "num",
+          "use": "number or count"
+        },
+        {
+          "word": "idx",
+          "use": "index"
+        },
+        {
+          "word": "arr",
+          "use": "the name of what the list holds"
+        },
+        {
+          "word": "cfg",
+          "use": "config"
+        },
+        {
+          "word": "conf",
+          "use": "config"
+        },
+        {
+          "word": "mgr",
+          "use": "the name of the role"
+        },
+        {
+          "word": "evt",
+          "use": "event"
+        },
+        {
+          "word": "cb",
+          "use": "callback, or on<Event>"
+        },
+        {
+          "word": "el",
+          "use": "element"
+        },
+        {
+          "word": "elem",
+          "use": "element"
+        },
+        {
+          "word": "attr",
+          "use": "attribute"
+        },
+        {
+          "word": "attrs",
+          "use": "attributes"
+        },
+        {
+          "word": "prev",
+          "use": "previous"
+        },
+        {
+          "word": "cur",
+          "use": "current"
+        },
+        {
+          "word": "curr",
+          "use": "current"
+        },
+        {
+          "word": "resp",
+          "use": "response"
+        },
+        {
+          "word": "req",
+          "use": "request"
+        },
+        {
+          "word": "len",
+          "use": "length"
+        },
+        {
+          "word": "str",
+          "use": "text, or the name of what it holds"
+        },
+        {
+          "word": "buf",
+          "use": "buffer"
+        },
+        {
+          "word": "addr",
+          "use": "address"
+        },
+        {
+          "word": "ctrl",
+          "use": "controller"
+        },
+        {
+          "word": "svc",
+          "use": "service"
+        },
+        {
+          "word": "srv",
+          "use": "server"
+        },
+        {
+          "word": "lst",
+          "use": "the name of what the list holds"
+        },
+        {
+          "word": "fn",
+          "use": "the name of the function role"
+        },
+        {
+          "word": "func",
+          "use": "the name of the function role"
+        }
+      ]
+    },
+    "synonym_groups": [
+      [
+        "get",
+        "fetch",
+        "load",
+        "read",
+        "retrieve",
+        "obtain",
+        "grab"
+      ],
+      [
+        "create",
+        "build",
+        "make",
+        "generate",
+        "new"
+      ],
+      [
+        "delete",
+        "remove",
+        "destroy",
+        "erase",
+        "drop",
+        "purge"
+      ],
+      [
+        "update",
+        "set",
+        "modify",
+        "change",
+        "edit",
+        "alter",
+        "patch"
+      ],
+      [
+        "validate",
+        "assert",
+        "check",
+        "verify"
+      ],
+      [
+        "compute",
+        "calculate",
+        "calc",
+        "derive"
+      ],
+      [
+        "start",
+        "init",
+        "initialize",
+        "launch",
+        "begin",
+        "boot"
+      ],
+      [
+        "stop",
+        "kill",
+        "terminate",
+        "halt",
+        "end"
+      ],
+      [
+        "send",
+        "emit",
+        "publish",
+        "dispatch",
+        "post"
+      ]
+    ],
+    "vague_messages": [
+      "error",
+      "failed",
+      "failure",
+      "oops",
+      "invalid",
+      "invalid input",
+      "bad input",
+      "bad request",
+      "something went wrong",
+      "unknown error",
+      "an error occurred",
+      "not found",
+      "unexpected error"
+    ],
+    "directives": [
+      "^\\s*-\\*-.*coding[:=]",
+      "^\\s*SPDX-License-Identifier:",
+      "^\\s*(eslint|eslint-disable|eslint-enable|eslint-disable-next-line|eslint-disable-line|global|globals)\\b",
+      "^\\s*@ts-(expect-error|ignore|nocheck|check)\\b",
+      "^\\s*prettier-ignore\\b",
+      "^\\s*(istanbul|c8|v8) ignore\\b",
+      "^\\s*@(jsx|jsxImportSource|jsxFrag|jsxRuntime|vitest-environment|jest-environment)\\b",
+      "^/\\s*<reference\\b",
+      "^\\s*noqa\\b",
+      "^\\s*type:\\s*ignore\\b",
+      "^\\s*(pyright|mypy|isort|pylint|ruff):",
+      "^\\s*fmt:\\s*(on|off|skip)\\b",
+      "^\\s*pragma:\\s*no\\s*(cover|branch)\\b",
+      "^go:[a-z]+\\b",
+      "^\\s*\\+build\\b",
+      "^\\s*nolint\\b",
+      "^\\s*ste-ignore\\b"
+    ],
+    "prose": {
+      "avoid": [
+        {
+          "text": "utilize",
+          "use": "use",
+          "rule": "W1.4"
+        },
+        {
+          "text": "utilise",
+          "use": "use",
+          "rule": "W1.4"
+        },
+        {
+          "text": "leverage",
+          "use": "use",
+          "rule": "W1.4"
+        },
+        {
+          "text": "facilitate",
+          "use": "help, or let",
+          "rule": "W1.4"
+        },
+        {
+          "text": "in order to",
+          "use": "to",
+          "rule": "W1.4"
+        },
+        {
+          "text": "prior to",
+          "use": "before",
+          "rule": "W1.4"
+        },
+        {
+          "text": "subsequent to",
+          "use": "after",
+          "rule": "W1.4"
+        },
+        {
+          "text": "subsequently",
+          "use": "then, or after",
+          "rule": "W1.4"
+        },
+        {
+          "text": "whilst",
+          "use": "while",
+          "rule": "W1.4"
+        },
+        {
+          "text": "amongst",
+          "use": "among",
+          "rule": "W1.4"
+        },
+        {
+          "text": "a number of",
+          "use": "some, or the number",
+          "rule": "W1.4"
+        },
+        {
+          "text": "in the event that",
+          "use": "if",
+          "rule": "W1.4"
+        },
+        {
+          "text": "due to the fact that",
+          "use": "because",
+          "rule": "W1.4"
+        },
+        {
+          "text": "at this point in time",
+          "use": "now",
+          "rule": "W1.4"
+        },
+        {
+          "text": "commence",
+          "use": "start",
+          "rule": "W1.4"
+        },
+        {
+          "text": "endeavor",
+          "use": "try",
+          "rule": "W1.4"
+        },
+        {
+          "text": "functionality",
+          "use": "function, or feature",
+          "rule": "W1.4"
+        },
+        {
+          "text": "performant",
+          "use": "fast, with a number",
+          "rule": "W1.4"
+        },
+        {
+          "text": "seamless",
+          "use": "the exact result",
+          "rule": "W1.4"
+        },
+        {
+          "text": "seamlessly",
+          "use": "the exact result",
+          "rule": "W1.4"
+        },
+        {
+          "text": "robust",
+          "use": "the exact property",
+          "rule": "W1.4"
+        },
+        {
+          "text": "simply",
+          "use": "nothing: delete it",
+          "rule": "W1.4"
+        },
+        {
+          "text": "just",
+          "use": "nothing: delete it, or only",
+          "rule": "W1.4"
+        },
+        {
+          "text": "basically",
+          "use": "nothing: delete it",
+          "rule": "W1.4"
+        },
+        {
+          "text": "obviously",
+          "use": "nothing: delete it",
+          "rule": "W1.4"
+        },
+        {
+          "text": "clearly",
+          "use": "nothing: delete it",
+          "rule": "W1.4"
+        },
+        {
+          "text": "actually",
+          "use": "nothing: delete it",
+          "rule": "W1.4"
+        },
+        {
+          "text": "really",
+          "use": "nothing: delete it",
+          "rule": "W1.4"
+        },
+        {
+          "text": "very",
+          "use": "a number, or a stronger word",
+          "rule": "W1.4"
+        },
+        {
+          "text": "please note",
+          "use": "NOTE:, or nothing",
+          "rule": "W1.4"
+        },
+        {
+          "text": "note that",
+          "use": "NOTE:, or nothing",
+          "rule": "W1.4"
+        },
+        {
+          "text": "it should be noted",
+          "use": "nothing: state the fact",
+          "rule": "W1.4"
+        },
+        {
+          "text": "as well as",
+          "use": "and",
+          "rule": "W1.4"
+        },
+        {
+          "text": "and/or",
+          "use": "A, B, or both",
+          "rule": "W1.4"
+        },
+        {
+          "text": "e.g.",
+          "use": "for example",
+          "rule": "W1.4"
+        },
+        {
+          "text": "i.e.",
+          "use": "that is",
+          "rule": "W1.4"
+        },
+        {
+          "text": "etc.",
+          "use": "the full list",
+          "rule": "W1.4"
+        },
+        {
+          "text": "in terms of",
+          "use": "about, or for",
+          "rule": "W1.4"
+        },
+        {
+          "text": "with regard to",
+          "use": "about",
+          "rule": "W1.4"
+        },
+        {
+          "text": "with respect to",
+          "use": "about",
+          "rule": "W1.4"
+        },
+        {
+          "text": "a lot of",
+          "use": "many, or the number",
+          "rule": "W1.4"
+        },
+        {
+          "text": "lots of",
+          "use": "many, or the number",
+          "rule": "W1.4"
+        },
+        {
+          "text": "is able to",
+          "use": "can",
+          "rule": "W1.4"
+        },
+        {
+          "text": "are able to",
+          "use": "can",
+          "rule": "W1.4"
+        },
+        {
+          "text": "out of the box",
+          "use": "with no setup",
+          "rule": "W1.6"
+        },
+        {
+          "text": "under the hood",
+          "use": "internally",
+          "rule": "W1.6"
+        },
+        {
+          "text": "low-hanging fruit",
+          "use": "easy tasks",
+          "rule": "W1.6"
+        },
+        {
+          "text": "on the fly",
+          "use": "while it runs",
+          "rule": "W1.6"
+        },
+        {
+          "text": "silver bullet",
+          "use": "full solution",
+          "rule": "W1.6"
+        },
+        {
+          "text": "boil the ocean",
+          "use": "do too much",
+          "rule": "W1.6"
+        },
+        {
+          "text": "moving forward",
+          "use": "from now on",
+          "rule": "W1.6"
+        },
+        {
+          "text": "kind of",
+          "use": "nothing, or a type of",
+          "rule": "W1.6"
+        },
+        {
+          "text": "sort of",
+          "use": "nothing, or a type of",
+          "rule": "W1.6"
+        },
+        {
+          "text": "perform a",
+          "use": "the verb alone, such as install",
+          "rule": "W3.4"
+        },
+        {
+          "text": "perform an",
+          "use": "the verb alone, such as install",
+          "rule": "W3.4"
+        },
+        {
+          "text": "carry out",
+          "use": "do, or the exact verb",
+          "rule": "W3.4"
+        },
+        {
+          "text": "make use of",
+          "use": "use",
+          "rule": "W3.4"
+        },
+        {
+          "text": "give consideration to",
+          "use": "consider",
+          "rule": "W3.4"
+        },
+        {
+          "text": "make a decision",
+          "use": "decide",
+          "rule": "W3.4"
+        },
+        {
+          "text": "take into account",
+          "use": "include",
+          "rule": "W3.4"
+        }
+      ],
+      "hedges": [
+        "may",
+        "might",
+        "could",
+        "possibly",
+        "probably",
+        "perhaps",
+        "likely",
+        "unlikely",
+        "seem",
+        "seems",
+        "seemed",
+        "appear",
+        "appears",
+        "apparently",
+        "somewhat",
+        "fairly",
+        "rather",
+        "quite",
+        "relatively",
+        "potentially",
+        "arguably",
+        "presumably",
+        "generally",
+        "typically"
+      ],
+      "imperatives": [
+        "add",
+        "allow",
+        "apply",
+        "ask",
+        "avoid",
+        "back",
+        "build",
+        "call",
+        "change",
+        "check",
+        "choose",
+        "clear",
+        "click",
+        "close",
+        "commit",
+        "compare",
+        "configure",
+        "connect",
+        "copy",
+        "count",
+        "create",
+        "define",
+        "delete",
+        "describe",
+        "disable",
+        "do",
+        "don't",
+        "download",
+        "edit",
+        "enable",
+        "ensure",
+        "enter",
+        "export",
+        "find",
+        "fix",
+        "follow",
+        "get",
+        "give",
+        "go",
+        "import",
+        "include",
+        "install",
+        "keep",
+        "let",
+        "link",
+        "list",
+        "load",
+        "look",
+        "make",
+        "mark",
+        "merge",
+        "move",
+        "name",
+        "never",
+        "obey",
+        "open",
+        "pick",
+        "press",
+        "pull",
+        "push",
+        "put",
+        "read",
+        "record",
+        "register",
+        "remove",
+        "rename",
+        "replace",
+        "report",
+        "reset",
+        "restart",
+        "return",
+        "review",
+        "rewrite",
+        "run",
+        "save",
+        "say",
+        "select",
+        "send",
+        "set",
+        "show",
+        "skip",
+        "sort",
+        "split",
+        "start",
+        "state",
+        "stop",
+        "submit",
+        "tell",
+        "test",
+        "try",
+        "type",
+        "update",
+        "upload",
+        "use",
+        "validate",
+        "verify",
+        "wait",
+        "write"
+      ],
+      "participles": [
+        "been",
+        "done",
+        "made",
+        "given",
+        "taken",
+        "written",
+        "built",
+        "sent",
+        "shown",
+        "known",
+        "found",
+        "kept",
+        "left",
+        "held",
+        "brought",
+        "thought",
+        "told",
+        "sold",
+        "seen",
+        "chosen",
+        "driven",
+        "broken",
+        "spoken",
+        "stolen",
+        "frozen",
+        "hidden",
+        "forgotten",
+        "gotten",
+        "begun",
+        "drawn",
+        "grown",
+        "thrown",
+        "worn",
+        "torn",
+        "shaken",
+        "undone",
+        "rewritten",
+        "overwritten",
+        "lost",
+        "paid",
+        "laid",
+        "said",
+        "meant",
+        "spent",
+        "dealt",
+        "felt",
+        "fed",
+        "led",
+        "met",
+        "bound",
+        "struck",
+        "stuck",
+        "hung",
+        "run",
+        "set",
+        "put",
+        "read",
+        "cut",
+        "shut",
+        "hit",
+        "split",
+        "spread"
+      ],
+      "stative": [
+        "approved",
+        "enabled",
+        "disabled",
+        "installed",
+        "connected",
+        "disconnected",
+        "closed",
+        "locked",
+        "unlocked",
+        "finished",
+        "done",
+        "complete",
+        "allowed",
+        "located",
+        "signed",
+        "logged",
+        "interested",
+        "tired",
+        "based",
+        "aware",
+        "able",
+        "concerned",
+        "named",
+        "called"
+      ],
+      "ing_exceptions": [
+        "thing",
+        "nothing",
+        "something",
+        "anything",
+        "everything",
+        "string",
+        "spring",
+        "ring",
+        "king",
+        "wing",
+        "ceiling",
+        "during",
+        "morning",
+        "evening",
+        "pending",
+        "outstanding",
+        "interesting",
+        "missing",
+        "boring",
+        "willing"
+      ],
+      "period_abbreviations": [
+        "e.g.",
+        "i.e.",
+        "etc.",
+        "vs.",
+        "mr.",
+        "ms.",
+        "dr.",
+        "no.",
+        "approx."
+      ]
+    },
+    "profiles": {
+      "typescript": {
+        "title": "TypeScript and JavaScript",
+        "extensions": [
+          ".ts",
+          ".tsx",
+          ".mts",
+          ".cts",
+          ".js",
+          ".jsx",
+          ".mjs",
+          ".cjs"
+        ],
+        "verbs": [
+          "use"
+        ],
+        "exempt_names": [
+          "constructor",
+          "render",
+          "main"
+        ],
+        "exempt_prefixes": [],
+        "handler_prefix_extensions": [
+          ".tsx",
+          ".jsx"
+        ],
+        "allowed_abbreviations": [
+          "props",
+          "ref",
+          "refs",
+          "req"
+        ],
+        "noun_kinds": [
+          "component",
+          "accessor"
+        ]
+      },
+      "python": {
+        "title": "Python",
+        "extensions": [
+          ".py",
+          ".pyi"
+        ],
+        "verbs": [],
+        "exempt_names": [
+          "main",
+          "setUp",
+          "tearDown",
+          "setUpClass",
+          "tearDownClass",
+          "setUpModule",
+          "tearDownModule",
+          "asyncSetUp",
+          "asyncTearDown"
+        ],
+        "exempt_prefixes": [
+          "test"
+        ],
+        "handler_prefix_extensions": [],
+        "allowed_abbreviations": [
+          "cls",
+          "kwargs",
+          "argv"
+        ],
+        "noun_kinds": [
+          "property",
+          "dunder"
+        ]
+      },
+      "go": {
+        "title": "Go",
+        "extensions": [
+          ".go"
+        ],
+        "verbs": [
+          "new",
+          "must"
+        ],
+        "exempt_names": [
+          "main",
+          "init",
+          "String",
+          "Error",
+          "Unwrap",
+          "Len",
+          "Less",
+          "Swap",
+          "ServeHTTP"
+        ],
+        "exempt_prefixes": [
+          "Test",
+          "Benchmark",
+          "Example",
+          "Fuzz"
+        ],
+        "handler_prefix_extensions": [],
+        "allowed_abbreviations": [
+          "buf",
+          "addr",
+          "req",
+          "len"
+        ],
+        "noun_kinds": [
+          "getter"
+        ]
+      },
+      "rust": {
+        "title": "Rust",
+        "extensions": [
+          ".rs"
+        ],
+        "verbs": [
+          "new",
+          "as",
+          "into",
+          "from",
+          "with"
+        ],
+        "exempt_names": [
+          "main",
+          "default",
+          "fmt",
+          "drop",
+          "deref",
+          "next",
+          "clone",
+          "eq",
+          "cmp",
+          "hash",
+          "len"
+        ],
+        "exempt_prefixes": [
+          "test"
+        ],
+        "handler_prefix_extensions": [],
+        "allowed_abbreviations": [
+          "buf",
+          "fmt",
+          "len",
+          "fn",
+          "impl",
+          "addr"
+        ],
+        "noun_kinds": [
+          "getter"
+        ]
+      }
+    }
+  }
+}

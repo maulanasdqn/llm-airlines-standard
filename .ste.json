@@ -1,0 +1,4 @@
+{
+  "lexicon": "LEXICON.md",
+  "exclude": ["tests/fixtures/*", "skills/*/references/*", "skills/ste-adopt/assets/*"]
+}

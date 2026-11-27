@@ -1,0 +1,7 @@
+extends: existence
+message: "Passive voice: '%s'. Name the actor and use the active voice (W3.3)."
+level: warning
+ignorecase: true
+tokens:
+  - '{{ lists.vale.passive }}'
+exceptions: {{ lists.vale.passive_exceptions }}

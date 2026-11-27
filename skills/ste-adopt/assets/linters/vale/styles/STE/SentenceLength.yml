@@ -1,0 +1,6 @@
+extends: occurrence
+message: "Write a sentence in 25 words or fewer (W6.1)."
+level: error
+scope: sentence
+max: 25
+token: '\b(\w+)\b'

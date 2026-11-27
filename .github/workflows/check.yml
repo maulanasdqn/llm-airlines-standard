@@ -1,0 +1,48 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  standard:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"
+      - run: python3 tools/build.py --check
+      - run: python3 -m unittest discover -s tests
+      - run: python3 skills/ste-review/scripts/ste_check.py prose .
+      - run: python3 skills/ste-review/scripts/ste_check.py code .
+
+  linters:
+    runs-on: ubuntu-latest
+    env:
+      VALE_VERSION: "3.29.0"
+      GOLANGCI_LINT_VERSION: "2.15.0"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+      - uses: astral-sh/setup-uv@v6
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy
+      - name: Install Vale and golangci-lint
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          curl -sSfL "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/vale_${VALE_VERSION}_Linux_64-bit.tar.gz" | tar -xz -C "$HOME/.local/bin" vale
+          curl -sSfL "https://github.com/golangci/golangci-lint/releases/download/v${GOLANGCI_LINT_VERSION}/golangci-lint-${GOLANGCI_LINT_VERSION}-linux-amd64.tar.gz" | tar -xz --strip-components=1 -C "$HOME/.local/bin" "golangci-lint-${GOLANGCI_LINT_VERSION}-linux-amd64/golangci-lint"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - run: uvx ruff check .
+      - run: bash tools/verify_linters.sh

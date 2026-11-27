@@ -1,0 +1,9 @@
+extends: existence
+message: "A semicolon or a dash joins two sentences. Write two sentences (W8.2)."
+level: warning
+nonword: true
+tokens:
+  - ';'
+  - '—'
+  - '–'
+  - ' -- '

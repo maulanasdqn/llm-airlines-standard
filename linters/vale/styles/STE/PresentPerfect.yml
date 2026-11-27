@@ -1,0 +1,6 @@
+extends: existence
+message: "Compound verb form: '%s'. Use the simple past or the simple present (W3.1)."
+level: warning
+ignorecase: true
+tokens:
+  - '(?:has|have|had)\s+(?:\w+ly\s+)?(?:\w+ed|been|done|made|given|taken|written|built|sent|shown|known|found|kept|left|held|brought|thought|told|sold|seen|chosen|driven|broken|spoken|stolen|frozen|hidden|forgotten|gotten|begun|drawn|grown|thrown|worn|torn|shaken|undone|rewritten|overwritten|lost|paid|laid|said|meant|spent|dealt|felt|fed|led|met|bound|struck|stuck|hung|run|set|put|read|cut|shut|hit|split|spread)'

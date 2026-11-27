@@ -1,0 +1,28 @@
+[lint]
+preview = true
+explicit-preview-rules = true
+select = [
+  "N",
+  "C90",
+  "FBT",
+  "SIM",
+  "RET",
+  "ERA",
+  "E741",
+  "ANN001",
+  "ANN201",
+  "PLR0912",
+  "PLR0915",
+  "PLR0917",
+  "PLR1702",
+  "PLR2004",
+]
+
+[lint.mccabe]
+max-complexity = 10
+
+[lint.pylint]
+max-positional-args = 3
+max-branches = 10
+max-statements = 40
+max-nested-blocks = 3

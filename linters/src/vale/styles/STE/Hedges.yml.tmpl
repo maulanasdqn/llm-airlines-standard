@@ -1,0 +1,6 @@
+extends: occurrence
+message: "Use {{ limits.prose.hedges_per_sentence }} hedge or fewer in each sentence (W4.3)."
+level: warning
+scope: sentence
+max: {{ limits.prose.hedges_per_sentence }}
+token: '(?i)\b(?:{{ lists.vale.hedges }})\b'

@@ -1,0 +1,6 @@
+extends: occurrence
+message: "Write {{ limits.prose.paragraph_sentences }} sentences or fewer in a paragraph (W6.3)."
+level: warning
+scope: paragraph
+max: {{ limits.prose.paragraph_sentences }}
+token: '[^.!?]+[.!?]'

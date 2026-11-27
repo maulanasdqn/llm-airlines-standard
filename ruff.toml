@@ -1,0 +1,3 @@
+extend = "linters/python/ruff.toml"
+target-version = "py39"
+extend-exclude = ["tests/fixtures", "skills/ste-adopt/assets"]

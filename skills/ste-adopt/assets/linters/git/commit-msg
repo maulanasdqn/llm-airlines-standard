@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+checker="${STE_CHECK:-tools/ste/ste_check.py}"
+exec python3 "$checker" commit "$1"

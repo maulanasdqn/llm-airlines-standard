@@ -1,0 +1,7 @@
+extends: existence
+message: "Use WARNING, CAUTION, or NOTE in capitals (W7.1). Found '%s'."
+level: warning
+scope: paragraph
+nonword: true
+raw:
+  - '^(?:Important|IMPORTANT|Danger|DANGER|Tip|TIP|Warning|Caution|Note)\s*:'

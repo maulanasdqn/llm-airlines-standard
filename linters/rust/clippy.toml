@@ -1,0 +1,6 @@
+too-many-arguments-threshold = 3
+too-many-lines-threshold = 40
+cognitive-complexity-threshold = 10
+excessive-nesting-threshold = 3
+disallowed-names = ["arr", "attr", "attrs", "baz", "btn", "cb", "cfg", "cnt", "conf", "ctrl", "cur", "curr", "data", "el", "elem", "evt", "foo", "func", "handler", "helper", "helpers", "idx", "info", "lst", "manager", "mgr", "misc", "msg", "msgs", "num", "obj", "passwd", "prev", "processor", "pwd", "req", "res", "resp", "ret", "srv", "str", "stuff", "svc", "thing", "things", "tmp", "usr", "util", "utils", "val"]
+min-ident-chars-threshold = 1

@@ -1,0 +1,6 @@
+extends: occurrence
+message: "Write 6 sentences or fewer in a paragraph (W6.3)."
+level: warning
+scope: paragraph
+max: 6
+token: '[^.!?]+[.!?]'

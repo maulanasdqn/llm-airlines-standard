@@ -1,0 +1,6 @@
+extends: occurrence
+message: "Use 1 hedge or fewer in each sentence (W4.3)."
+level: warning
+scope: sentence
+max: 1
+token: '(?i)\b(?:may|might|could|possibly|probably|perhaps|likely|unlikely|seem|seems|seemed|appear|appears|apparently|somewhat|fairly|rather|quite|relatively|potentially|arguably|presumably|generally|typically)\b'

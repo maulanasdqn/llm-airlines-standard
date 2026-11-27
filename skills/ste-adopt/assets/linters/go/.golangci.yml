@@ -1,0 +1,41 @@
+version: "2"
+linters:
+  default: none
+  enable:
+    - revive
+    - gocognit
+    - mnd
+    - misspell
+    - errname
+    - varnamelen
+  settings:
+    gocognit:
+      min-complexity: 10
+    misspell:
+      locale: US
+    varnamelen:
+      ignore-names: [err, ctx, ok, id, i, j, k, t, b, w, r]
+    revive:
+      rules:
+        - name: var-naming
+        - name: receiver-naming
+        - name: error-strings
+        - name: flag-parameter
+        - name: early-return
+        - name: indent-error-flow
+        - name: argument-limit
+          arguments: [3]
+        - name: max-control-nesting
+          arguments: [3]
+        - name: cyclomatic
+          arguments: [10]
+        - name: function-length
+          arguments: [0, 40]
+        - name: file-length-limit
+          arguments:
+            - max: 200
+              skipBlankLines: true
+              skipComments: false
+formatters:
+  enable:
+    - gofmt

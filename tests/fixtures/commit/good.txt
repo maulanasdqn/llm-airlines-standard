@@ -1,0 +1,3 @@
+Add retry to the invoice sender
+
+The sender stopped after one network error. Now it tries 3 times.

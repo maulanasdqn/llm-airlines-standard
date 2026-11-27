@@ -1,0 +1,18 @@
+- id: ste-prose
+  name: STE prose check
+  description: Find breaks of the STE writing rules in Markdown files.
+  entry: skills/ste-review/scripts/ste_check.py prose
+  language: script
+  types: [markdown]
+- id: ste-code
+  name: STE-C code check
+  description: Find breaks of the STE-C code rules.
+  entry: skills/ste-review/scripts/ste_check.py code
+  language: script
+  types_or: [ts, tsx, javascript, jsx, python, go, rust]
+- id: ste-commit
+  name: STE commit message check
+  description: Find breaks of rule C9.4 and the writing rules in the commit message.
+  entry: skills/ste-review/scripts/ste_check.py commit
+  language: script
+  stages: [commit-msg]

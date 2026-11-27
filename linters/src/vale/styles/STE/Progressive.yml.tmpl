@@ -1,0 +1,7 @@
+extends: existence
+message: "'-ing' verb form: '%s'. Use the simple present or the simple past (W3.2)."
+level: warning
+ignorecase: true
+tokens:
+  - '{{ lists.vale.progressive }}'
+exceptions: {{ lists.vale.progressive_exceptions }}

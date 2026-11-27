@@ -1,0 +1,41 @@
+version: "2"
+linters:
+  default: none
+  enable:
+    - revive
+    - gocognit
+    - mnd
+    - misspell
+    - errname
+    - varnamelen
+  settings:
+    gocognit:
+      min-complexity: {{ limits.code.complexity }}
+    misspell:
+      locale: US
+    varnamelen:
+      ignore-names: [err, ctx, ok, id, i, j, k, t, b, w, r]
+    revive:
+      rules:
+        - name: var-naming
+        - name: receiver-naming
+        - name: error-strings
+        - name: flag-parameter
+        - name: early-return
+        - name: indent-error-flow
+        - name: argument-limit
+          arguments: [{{ limits.code.positional_params }}]
+        - name: max-control-nesting
+          arguments: [{{ limits.code.nesting_depth }}]
+        - name: cyclomatic
+          arguments: [{{ limits.code.complexity }}]
+        - name: function-length
+          arguments: [0, {{ limits.code.function_lines }}]
+        - name: file-length-limit
+          arguments:
+            - max: {{ limits.code.file_lines }}
+              skipBlankLines: true
+              skipComments: false
+formatters:
+  enable:
+    - gofmt
