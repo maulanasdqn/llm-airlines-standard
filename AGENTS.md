@@ -14,7 +14,7 @@ This repository obeys its own standard.
 | `linters/` | Configs for Vale, ESLint, ruff, golangci-lint, and clippy | `linters/src/` only |
 | `tools/` | The build script, the installer, and the linter check | Yes |
 | `tests/` | The unit tests and the fixtures | Yes |
-| `.claude-plugin/` | The Claude Code plugin and marketplace manifests | Yes |
+| `.claude-plugin/` | The Claude Code plugin and marketplace manifests, and `icon.png` | Yes. Render `icon.png` again from `docs/images/icon.svg` after you change the SVG. |
 | `install.sh` | The bootstrap of the installer, for use with `curl` | Yes |
 
 ## How to change the standard

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024" role="img" aria-labelledby="title description">
+  <title id="title">llm-airlines-standard</title>
+  <desc id="description">A jet in an amber ring. Its contrails are rows of short dashes, like controlled lines of text.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1F3A"/>
+      <stop offset="1" stop-color="#143C6B"/>
+    </linearGradient>
+    <clipPath id="emblem">
+      <circle cx="170" cy="160" r="104"/>
+    </clipPath>
+  </defs>
+  <rect width="1024" height="1024" fill="url(#sky)"/>
+  <g transform="translate(512 512) scale(3.45) translate(-170 -160)">
+    <circle cx="170" cy="160" r="110" fill="#0F2A4D" stroke="#F2B134" stroke-width="6"/>
+    <g clip-path="url(#emblem)">
+      <g transform="translate(170 160) rotate(45)" stroke-linecap="round" stroke-width="6" fill="none">
+        <path d="M-24 30V44M-24 56V80M-24 92V100M-24 112V150" stroke="#7FB2FF" stroke-opacity="0.85"/>
+        <path d="M24 30V52M24 64V72M24 84V110M24 122V150" stroke="#7FB2FF" stroke-opacity="0.85"/>
+        <path d="M0 62V70M0 82V104M0 116V150" stroke="#7FB2FF" stroke-opacity="0.45"/>
+      </g>
+      <g transform="translate(170 160) rotate(45) scale(1.45)">
+        <path fill="#FFFFFF" d="M0 -48C4 -48 5 -40 5 -32L5 -8L44 12L44 18L5 6L5 28L18 38L18 43L3 39L0 46L-3 39L-18 43L-18 38L-5 28L-5 6L-44 18L-44 12L-5 -8L-5 -32C-5 -40 -4 -48 0 -48Z"/>
+        <rect x="-26" y="6" width="5" height="11" rx="2" fill="#F2B134"/>
+        <rect x="21" y="6" width="5" height="11" rx="2" fill="#F2B134"/>
+      </g>
+    </g>
+  </g>
+</svg>

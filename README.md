@@ -44,7 +44,7 @@ The map of each STE section to its code rules is in `spec/code/mapping.md`.
 | `linters/` | Configs for Vale, ESLint, ruff, golangci-lint, and clippy, and a git `commit-msg` hook |
 | `spec/` | The rules, the dictionary, and the language profiles |
 | `install.sh`, `tools/install.py` | The installer for the skills |
-| `docs/images/` | The logo and the build diagram |
+| `docs/images/` | The logo, the build diagram, and the source of the plugin icon |
 
 The build reads the rules in `spec/` and writes the skills, the templates, and the linter configs.
 The installer and the `ste-adopt` skill put them in your repository.
