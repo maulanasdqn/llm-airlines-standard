@@ -11,21 +11,17 @@ permissions:
 jobs:
   standard:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python: ["3.9", "3.13"]
     steps:
       - uses: actions/checkout@v4
-      - uses: astral-sh/setup-uv@v6
-      - name: Create a Python ${{ matrix.python }} environment
-        run: |
-          uv venv --python "${{ matrix.python }}" "$RUNNER_TEMP/venv"
-          echo "$RUNNER_TEMP/venv/bin" >> "$GITHUB_PATH"
-      - run: python3 --version
-      - run: python3 tools/build.py --check
-      - run: python3 -m unittest discover -s tests
-      - run: python3 skills/ste-review/scripts/ste_check.py prose .
-      - run: python3 skills/ste-review/scripts/ste_check.py code .
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets --locked -- -D warnings
+      - run: cargo test --locked
+      - run: cargo run --locked --quiet -- build --check
+      - run: cargo run --locked --quiet -- check prose .
+      - run: cargo run --locked --quiet -- check code .
 
   linters:
     runs-on: ubuntu-latest
@@ -50,5 +46,4 @@ jobs:
           curl -sSfL "https://github.com/errata-ai/vale/releases/download/v${VALE_VERSION}/vale_${VALE_VERSION}_Linux_64-bit.tar.gz" | tar -xz -C "$HOME/.local/bin" vale
           curl -sSfL "https://github.com/golangci/golangci-lint/releases/download/v${GOLANGCI_LINT_VERSION}/golangci-lint-${GOLANGCI_LINT_VERSION}-linux-amd64.tar.gz" | tar -xz --strip-components=1 -C "$HOME/.local/bin" "golangci-lint-${GOLANGCI_LINT_VERSION}-linux-amd64/golangci-lint"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
-      - run: uvx ruff check .
       - run: bash tools/verify_linters.sh
